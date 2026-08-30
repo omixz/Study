@@ -1,0 +1,16 @@
+{
+  "name": "hsc-revision",
+  "version": "1.0.0",
+  "description": "AI-powered HSC revision platform with flashcards, practice questions, essay marking, and MCQ",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "vercel build"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
