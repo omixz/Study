@@ -29,7 +29,7 @@ export async function callGroqApi(prompt, maxTokens = 700, temperature = 0.7) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${apiKey}`
+      'Authorization': `Bearer ${apiKey}`
     },
     body: JSON.stringify({
       model: 'llama-3.3-70b-versatile',
