@@ -1,216 +1,82 @@
-/**
- * Complete HSC Syllabus Dot Points by Subject
- * Embedded in repo - all data sent to Vercel
+/*
+ * Year 12/HSC syllabus tracker data.  The wording and sequence below follow
+ * the published NESA Stage 6 course documents (source URLs are kept with the
+ * course so an annual audit is straightforward).  An item is deliberately a
+ * single assessable syllabus point; it is never a hand-written percentage.
  */
-
 const HSC_SYLLABUS = {
-  cafs: {
-    label: 'CAFS',
-    color: '#D6667A',
-    topics: {
-      'The Individual': [
-        'Analyse the factors that contribute to the development of identity',
-        'Examine how self-concept influences behaviour',
-        'Evaluate the role of self-esteem in personal wellbeing',
-        'Analyse the impact of body image on adolescent development'
-      ],
-      'Groups and Communities': [
-        'Analyse the formation and cohesion of groups',
-        'Examine the role of group leaders and members',
-        'Assess the factors that contribute to group conflict',
-        'Evaluate the importance of community organisations and networks'
-      ],
-      'Social Impact of Technology': [
-        'Examine how technology influences social relationships and communication',
-        'Analyse the impact of social media on self-esteem and body image',
-        'Evaluate the benefits and drawbacks of online networking',
-        'Assess the impact of technology on family relationships and socialisation',
-        'Analyse the role of technology in cyber bullying and online safety',
-        'Examine digital citizenship and online ethics',
-        'Evaluate the impact of technology on work-life balance and mental health'
-      ],
-      'Relationships': [
-        'Analyse the features of healthy and unhealthy relationships',
-        'Examine the factors that influence relationship satisfaction',
-        'Assess communication strategies in relationships',
-        'Evaluate conflict resolution techniques',
-        'Analyse the impact of separation and divorce on individuals and families'
-      ],
-      'Families': [
-        'Examine different family structures and their characteristics',
-        'Analyse the functions of families in society',
-        'Assess the factors affecting family dynamics',
-        'Evaluate the role of families in socialisation'
-      ]
-    }
-  },
-  business: {
-    label: 'Business Studies',
-    color: '#3E7CB1',
-    topics: {
-      'External Environment': [
-        'Analyse the nature and role of business in the economy',
-        'Examine economic factors affecting business',
-        'Assess the impact of social factors on business operations',
-        'Evaluate the influence of technological change on business',
-        'Analyse the effect of government policies on business',
-        'Examine legal and ethical responsibilities of business'
-      ],
-      'Management': [
-        'Analyse the functions of management',
-        'Examine different management structures',
-        'Assess the effectiveness of management strategies',
-        'Evaluate leadership styles and their impact on business performance',
-        'Analyse human resource management strategies',
-        'Examine motivation theories and their application'
-      ],
-      'Finance': [
-        'Analyse financial planning and budgeting',
-        'Examine cash flow management',
-        'Assess financial performance using ratios',
-        'Evaluate sources of finance and their suitability',
-        'Analyse investment decisions and risk management'
-      ],
-      'Operations': [
-        'Analyse production and operations management',
-        'Examine supply chain management',
-        'Assess quality management and control',
-        'Evaluate technology and automation in operations',
-        'Analyse inventory management strategies'
-      ],
-      'Marketing': [
-        'Examine the role of marketing in business',
-        'Analyse market research and segmentation',
-        'Assess the marketing mix and its application',
-        'Evaluate marketing strategies and campaigns',
-        'Analyse consumer behaviour and decision-making'
-      ]
-    }
-  },
-  legal: {
-    label: 'Legal Studies',
-    color: '#5B8C5A',
-    topics: {
-      'Legal System': [
-        'Analyse the role of law in society',
-        'Examine the structure and operations of Australian courts',
-        'Assess the sources of law in Australia',
-        'Evaluate the law-making process and parliamentary procedure',
-        'Analyse the role of the judiciary in interpreting law'
-      ],
-      'Criminal Law': [
-        'Analyse the elements of criminal liability (actus reus and mens rea)',
-        'Examine different categories of crime',
-        'Assess the rights of the accused and fair trial principles',
-        'Evaluate defences to criminal charges',
-        'Analyse sentencing principles and penalties'
-      ],
-      'Family Law': [
-        'Examine the law relating to marriage and de facto relationships',
-        'Analyse the grounds for divorce and property division',
-        'Assess the law relating to children and parenting orders',
-        'Evaluate support obligations and maintenance',
-        'Analyse the principles of family law dispute resolution',
-        'Examine domestic violence laws and protection orders',
-        'Assess child welfare and custody arrangements'
-      ],
-      'Indigenous Law': [
-        'Examine the historical context of Indigenous Australians and the legal system',
-        'Analyse the principles of Native Title',
-        'Assess Indigenous customary law and its recognition',
-        'Evaluate policies and legislation affecting Indigenous Australians',
-        'Analyse the Uluru Statement from the Heart and constitutional reform',
-        'Examine Indigenous land rights and land claims',
-        'Assess reconciliation and self-determination principles',
-        'Analyse the impact of colonial law on Indigenous communities'
-      ],
-      'Civil Law': [
-        'Analyse the law of contract',
-        'Examine the law of negligence and tort liability',
-        'Assess consumer rights and protections',
-        'Evaluate property law principles',
-        'Analyse alternative dispute resolution methods'
-      ]
-    }
-  },
-  english: {
-    label: 'English Studies',
-    color: '#B8863B',
-    topics: {
-      'Communication': [
-        'Analyse how language is used to construct meaning',
-        'Examine the features of spoken, written and visual communication',
-        'Assess the impact of context on communication',
-        'Evaluate the effectiveness of different communication strategies'
-      ],
-      'Text and Audiences': [
-        'Analyse how authors construct texts for specific audiences',
-        'Examine the relationship between text and context',
-        'Assess the use of language devices and their effects',
-        'Evaluate how perspective and representation are constructed'
-      ],
-      'Playing the Game': [
-        'Analyse the plot structure, character development and themes in Playing the Game',
-        'Examine the use of dramatic techniques in Playing the Game',
-        'Assess the representation of competition and achievement',
-        'Evaluate the author\'s commentary on society and values',
-        'Analyse the dialogue and its effectiveness in revealing character',
-        'Examine the setting and its significance to the narrative',
-        'Assess the moral and ethical dilemmas presented in the text',
-        'Evaluate the relevance of themes to contemporary society'
-      ],
-      'We Are Australians': [
-        'Analyse the representation of Australian identity in texts',
-        'Examine how Australian values and culture are portrayed',
-        'Assess the use of Australian language and vernacular',
-        'Evaluate the treatment of diversity and multiculturalism',
-        'Analyse historical and contemporary perspectives on being Australian',
-        'Examine the role of Indigenous Australians in Australian identity',
-        'Assess stereotypes and their deconstruction in texts',
-        'Evaluate personal and national identity formation'
-      ],
-      'Literature': [
-        'Analyse literary techniques and their effects',
-        'Examine themes and values in literary texts',
-        'Assess character development and motivation',
-        'Evaluate historical and cultural contexts of texts',
-        'Analyse the relationship between form and content'
-      ],
-      'Writing': [
-        'Examine the conventions of different text types',
-        'Analyse purpose and audience in writing',
-        'Assess the effectiveness of written expression',
-        'Evaluate revision and editing strategies',
-        'Analyse the use of language features in persuasive writing'
-      ]
-    }
-  }
+  cafs: course('CAFS', '#D6667A', 'https://curriculum.nsw.edu.au/learning-areas/hsie/community-and-family-studies-11-12-2003/content/year-12', [
+    topic('Research Methodology', 'Research methodology', ['The nature of research', 'Ethical behaviour in research', 'Research methods', 'Research process', 'Independent Research Project']),
+    topic('Groups in Context', 'Group concepts', ['The characteristics of groups', 'The needs of groups', 'The roles individuals adopt within groups']),
+    topic('Groups in Context', 'Community groups', ['Youth', 'Rural and remote families', 'The aged', 'People with disabilities', 'Culturally and linguistically diverse communities']),
+    topic('Parenting and Caring', 'Parenting and caring roles', ['Preparation for parenting and caring', 'Parenting and caring relationships', 'Parenting and caring styles', 'The impact of parenting and caring on wellbeing']),
+    topic('Social Impact of Technology', 'Technology and society', ['The development of technology', 'Access to and acceptance of technology', 'The impact of technology on individuals, families, work and communities'])
+  ]),
+  business: course('Business Studies', '#3E7CB1', 'https://curriculum.nsw.edu.au/learning-areas/hsie/business-studies-11-12-2009/content/year-12', [
+    topic('Operations', 'The role of operations management', ['Strategic role of operations management', 'Goods and/or services in different types of businesses']),
+    topic('Operations', 'Influences on operations', ['Globalisation', 'Technology', 'Quality expectations', 'Cost-based competition', 'Government policies', 'Legal regulation', 'Environmental sustainability']),
+    topic('Operations', 'Operations processes', ['Inputs', 'Transformation processes', 'Outputs']),
+    topic('Operations', 'Operations strategies', ['Performance objectives', 'New product or service design and development', 'Supply chain management', 'Outsourcing', 'Technology', 'Inventory management', 'Quality management', 'Overcoming resistance to change']),
+    topic('Marketing', 'The role of marketing', ['Strategic role of marketing goods and services', 'Interdependence with other key business functions']),
+    topic('Marketing', 'Influences on marketing', ['Factors influencing customer choice', 'Consumer laws', 'Financial situation', 'Technology', 'Globalisation', 'Social and ethical issues']),
+    topic('Marketing', 'Market research process', ['Situational analysis', 'Market research', 'Establishing market objectives', 'Identifying target markets', 'Developing market strategies', 'Implementing, monitoring and controlling']),
+    topic('Marketing', 'Marketing strategies', ['Market segmentation', 'Product', 'Price', 'Promotion', 'Place', 'People, processes and physical evidence', 'E-marketing', 'Global marketing']),
+    topic('Finance', 'The role of financial management', ['Strategic role of financial management', 'Interdependence with other key business functions']),
+    topic('Finance', 'Influences on financial management', ['Internal sources of finance', 'External sources of finance', 'Influence of globalisation', 'Influence of technology', 'Government influence', 'Institutional influence']),
+    topic('Finance', 'Financial management processes', ['Planning and implementing', 'Debt and equity financing', 'Matching the terms and sources of finance to business purpose', 'Monitoring and controlling']),
+    topic('Finance', 'Financial management strategies', ['Cash flow management', 'Working capital management', 'Profit management', 'Global market influences', 'Financial planning']),
+    topic('Human Resources', 'The role of human resource management', ['Strategic role of human resource management', 'Interdependence with other key business functions']),
+    topic('Human Resources', 'Influences on human resource management', ['Stakeholders', 'Legal influences', 'Economic influences', 'Technology', 'Globalisation', 'Social and ethical issues']),
+    topic('Human Resources', 'Human resource management processes', ['Acquisition', 'Development', 'Maintenance', 'Separation']),
+    topic('Human Resources', 'Human resource management strategies', ['Leadership style', 'Skills', 'Outsourcing', 'Changing work patterns', 'Interdependence with other key business functions'])
+  ]),
+  legal: course('Legal Studies', '#5B8C5A', 'https://curriculum.nsw.edu.au/learning-areas/hsie/legal-studies-11-12-2009/content/year-12', [
+    topic('Crime', 'The nature of crime', ['The meaning of crime', 'The elements of crime: actus reus, mens rea', 'Categories of crime', 'The purposes of punishment', 'Factors affecting criminal behaviour']),
+    topic('Crime', 'The investigation process', ['Police powers', 'Reporting crime', 'Investigating crime', 'Arrest and charge', 'Search and seizure', 'Bail or remand', 'Detention and interrogation', 'Role of the courts']),
+    topic('Crime', 'The criminal trial process', ['Court jurisdiction', 'Legal personnel', 'The adversary system', 'Burden and standard of proof', 'Use of evidence', 'Defences to criminal charges', 'The role of juries']),
+    topic('Crime', 'Sentencing and punishment', ['Purposes of punishment', 'Factors affecting a sentencing decision', 'Types of penalties', 'Post-sentencing considerations']),
+    topic('Crime', 'Young offenders', ['Age of criminal responsibility', 'The Children’s Court', 'Penalties for children']),
+    topic('Human Rights', 'The nature and development of human rights', ['The definition of human rights', 'The origins and development of human rights', 'Universal Declaration of Human Rights', 'The role of state sovereignty']),
+    topic('Human Rights', 'Promoting and enforcing human rights', ['The role of the United Nations', 'International instruments', 'The role of courts and tribunals', 'The role of non-government organisations']),
+    topic('Human Rights', 'Human rights in Australia', ['The Constitution', 'Statute law', 'Common law', 'Courts and tribunals', 'The Australian Human Rights Commission', 'A Charter of Rights']),
+    topic('Human Rights', 'Contemporary issue: refugees and asylum seekers', ['The nature of the issue', 'Legal and non-legal responses', 'Effectiveness of the responses']),
+    topic('Family', 'The nature of family law', ['The concept of family', 'The nature of family law', 'The role of the state']),
+    topic('Family', 'Responses to problems in family relationships', ['The roles of courts and dispute resolution', 'The roles of the community', 'The roles of the state']),
+    topic('Family', 'Contemporary issue: relationship breakdown', ['The nature of the issue', 'Legal and non-legal responses', 'Effectiveness of the responses']),
+    topic('Indigenous Peoples', 'The nature of Indigenous peoples’ rights', ['The definition of Indigenous peoples’ rights', 'The development of Indigenous peoples’ rights', 'The role of state sovereignty']),
+    topic('Indigenous Peoples', 'Promoting and enforcing Indigenous peoples’ rights', ['The role of the United Nations', 'International instruments', 'The role of courts and tribunals', 'The role of non-government organisations']),
+    topic('Indigenous Peoples', 'Contemporary issue: land rights', ['The nature of the issue', 'Legal and non-legal responses', 'Effectiveness of the responses'])
+  ]),
+  english: course('English Studies', '#B8863B', 'https://curriculum.nsw.edu.au/learning-areas/english/english-studies-stage-6-2017/content/year-12', [
+    topic('Texts and Human Experiences', 'Common module', ['Students deepen their understanding of how texts represent individual and collective human experiences.', 'Students examine how texts represent human qualities and emotions associated with, or arising from, these experiences.', 'Students appreciate, explore, interpret, analyse and evaluate the ways language is used to shape these representations in a range of texts.', 'Students explore how texts may give insight into the anomalies, paradoxes and inconsistencies in human behaviours and motivations.']),
+    topic('We Are Australians', 'Elective module', ['Students explore the ways that texts represent Australian identities.', 'Students examine how texts represent individual and collective experiences of being Australian.', 'Students explore how language forms, features and structures shape representations of Australia and Australians.']),
+    topic('Playing the Game', 'Elective module', ['Students explore how texts represent games and sport as significant social and cultural practices.', 'Students examine how texts represent the values, attitudes and beliefs associated with games and sport.', 'Students explore how language forms, features and structures shape representations of playing the game.']),
+    topic('Craft of Writing', 'Craft of writing', ['Students use processes of planning, drafting, rehearsing, refining and editing to compose for a range of purposes and audiences.', 'Students use language forms and features to shape meaning in imaginative, discursive, persuasive and informative texts.', 'Students reflect on their own composing processes and the ways they make choices for audience, purpose and context.'])
+  ])
 };
+function course(label, color, source, topics) { return { label, color, source, topics }; }
+function topic(name, subtopic, points) { return { name, subtopic, points }; }
+function syllabusId(subjectKey, topicIndex, pointIndex) { return `${subjectKey}.y12.${String(topicIndex + 1).padStart(2, '0')}.${String(pointIndex + 1).padStart(2, '0')}`; }
+function getSyllabusData() { return HSC_SYLLABUS; }
+function getSubjectSyllabus(subjectKey) { return HSC_SYLLABUS[subjectKey] || null; }
+function getAllDotPoints(subjectKey) { const s = HSC_SYLLABUS[subjectKey]; return s ? s.topics.flatMap((t, ti) => t.points.map((text, pi) => ({ id: syllabusId(subjectKey, ti, pi), topic: t.name, subtopic: t.subtopic, text, order: [ti, pi] }))) : []; }
 
-// Export function to get all syllabus data
-function getSyllabusData() {
-  return HSC_SYLLABUS;
-}
-
-// Export function to get specific subject
-function getSubjectSyllabus(subjectKey) {
-  return HSC_SYLLABUS[subjectKey] || null;
-}
-
-// Export function to get all dot points for a subject
-function getAllDotPoints(subjectKey) {
-  const subject = HSC_SYLLABUS[subjectKey];
-  if (!subject) return [];
-
-  const allPoints = [];
-  Object.entries(subject.topics).forEach(([topicName, dotPoints]) => {
-    dotPoints.forEach((point, idx) => {
-      allPoints.push({
-        id: `${subjectKey}-${topicName}-${idx}`,
-        topic: topicName,
-        text: point
-      });
+function validateSyllabusData(subjects, progress) {
+  const errors = [], allIds = new Set();
+  Object.keys(subjects || HSC_SYLLABUS).forEach(key => {
+    const syllabus = HSC_SYLLABUS[key];
+    if (!syllabus) return errors.push(`${key}: subject has no syllabus data`);
+    if (!Array.isArray(syllabus.topics) || !syllabus.topics.length) errors.push(`${key}: empty topics`);
+    let previous = ''; const texts = new Set();
+    getAllDotPoints(key).forEach(item => {
+      if (allIds.has(item.id)) errors.push(`${key}: duplicate syllabus ID ${item.id}`); allIds.add(item.id);
+      const textKey = `${item.topic}\u0000${item.subtopic}\u0000${item.text}`; if (texts.has(textKey)) errors.push(`${key}: duplicate dot-point text: ${item.text}`); texts.add(textKey);
+      if (!item.text.trim()) errors.push(`${key}: empty dot point ${item.id}`);
+      if (previous && item.id <= previous) errors.push(`${key}: incorrect ordering at ${item.id}`); previous = item.id;
     });
   });
-  return allPoints;
+  Object.keys(progress || {}).forEach(id => { if (!allIds.has(id)) errors.push(`orphaned tracker progress: ${id}`); });
+  return errors;
 }
+function assertValidSyllabusData(subjects, progress) { const errors = validateSyllabusData(subjects, progress); if (errors.length) throw new Error(`Invalid syllabus data:\n${errors.join('\n')}`); }
+if (typeof window !== 'undefined') assertValidSyllabusData(window.SUBJECTS || null);
