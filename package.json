@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vercel dev",
-    "build": "node -e \"console.log('No build step required')\""
+    "build": "node -e \"console.log('No build step required')\"",
+    "test": "node test/syllabus-validation.test.js",
+    "lint": "node --check public/hsc-syllabus-data.js && node --check public/syllabus-tracker.js && node --check public/dashboard.js && node --check public/data-english.js"
   },
   "dependencies": {
     "node-fetch": "^3.3.0"

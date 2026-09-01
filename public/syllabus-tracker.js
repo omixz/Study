@@ -1,98 +1,16 @@
-/**
- * Syllabus tracking functionality
- * Uses embedded HSC_SYLLABUS data and localStorage for persistence
- */
-
-let syllabusProgress = {};
-let currentSyllabusSubject = null;
 const SYLLABUS_PROGRESS_KEY = 'hsc-syllabus-progress';
-
-function loadSyllabusProgress(subjectKey) {
-  try {
-    const stored = localStorage.getItem(SYLLABUS_PROGRESS_KEY);
-    syllabusProgress = stored ? JSON.parse(stored) : {};
-  } catch (err) {
-    console.error('Failed to load progress from localStorage:', err);
-    syllabusProgress = {};
-  }
-}
-
-function saveDotPointStatus(dotPointId, status) {
-  const subjectKey = currentSyllabusSubject;
-  try {
-    syllabusProgress[dotPointId] = status;
-    localStorage.setItem(SYLLABUS_PROGRESS_KEY, JSON.stringify(syllabusProgress));
-  } catch (err) {
-    console.error('Failed to save progress to localStorage:', err);
-  }
-}
-
+let syllabusProgress = {};
+function loadSyllabusProgress() { try { syllabusProgress = JSON.parse(localStorage.getItem(SYLLABUS_PROGRESS_KEY) || '{}'); } catch { syllabusProgress = {}; } return syllabusProgress; }
+function saveProgress() { localStorage.setItem(SYLLABUS_PROGRESS_KEY, JSON.stringify(syllabusProgress)); }
+function completed(id) { return syllabusProgress[id] === 'complete'; }
+function syllabusStats(key) { const items = getAllDotPoints(key); const done = items.filter(x => completed(x.id)).length; return { total: items.length, done, percent: items.length ? Math.round(done / items.length * 100) : 0 }; }
 function renderSyllabusTracker() {
-  const syllabusView = document.getElementById('syllabusView');
-  const subjectKey = currentSubject;
-  currentSyllabusSubject = subjectKey;
-
-  loadSyllabusProgress(subjectKey);
-
-  const syllabus = HSC_SYLLABUS[subjectKey];
-  if (!syllabus) {
-    syllabusView.innerHTML = '<div class="fb-note">No syllabus data for this subject yet.</div>';
-    return;
-  }
-
-  let html = '';
-  let dotPointCount = 0;
-  
-  Object.entries(syllabus.topics).forEach(([topicName, dotPoints]) => {
-    html += `<div class="syllabus-topic"><h3>${escapeHtml(topicName)}</h3>`;
-    dotPoints.forEach((point, pointIdx) => {
-      const id = `${subjectKey}-${topicName}-${pointIdx}`;
-      const status = syllabusProgress[id] || 'red';
-      
-      html += `
-        <div class="dot-point ${status}" id="dp-${id}">
-          <div class="dot-point-text">${escapeHtml(point)}</div>
-          <div class="dot-point-buttons">
-            <button class="status-btn ${status === 'red' ? 'active' : 'red'}" data-id="${id}" data-status="red" title="Need to learn">🔴</button>
-            <button class="status-btn ${status === 'orange' ? 'active' : 'orange'}" data-id="${id}" data-status="orange" title="Sort of know">🟠</button>
-            <button class="status-btn ${status === 'green' ? 'active' : 'green'}" data-id="${id}" data-status="green" title="Fully know">🟢</button>
-          </div>
-        </div>
-      `;
-      dotPointCount++;
-    });
-    html += '</div>';
-  });
-
-  syllabusView.innerHTML = html;
-
-  // Attach click handlers to all status buttons
-  document.querySelectorAll('.status-btn').forEach(btn => {
-    btn.onclick = (e) => {
-      e.preventDefault();
-      const dotPointId = btn.dataset.id;
-      const newStatus = btn.dataset.status;
-      saveDotPointStatus(dotPointId, newStatus);
-
-      const dotPointEl = document.getElementById(`dp-${dotPointId}`);
-      dotPointEl.classList.remove('red', 'orange', 'green');
-      dotPointEl.classList.add(newStatus);
-
-      const btns = dotPointEl.querySelectorAll('.status-btn');
-      btns.forEach(b => {
-        b.classList.remove('active', 'red', 'orange', 'green');
-        if (b.dataset.status === newStatus) {
-          b.classList.add('active');
-        } else {
-          b.classList.add(b.dataset.status);
-        }
-      });
-    };
-  });
+  loadSyllabusProgress(); assertValidSyllabusData(SUBJECTS, syllabusProgress);
+  const key = currentSubject, syllabus = HSC_SYLLABUS[key], view = document.getElementById('syllabusView');
+  if (!syllabus) { view.innerHTML = '<div class="fb-note">No Year 12 syllabus data is available.</div>'; return; }
+  const stats = syllabusStats(key);
+  view.innerHTML = `<section class="tracker-head"><div><span class="eyebrow">Year 12 / HSC</span><h2>Syllabus</h2></div><strong>${stats.percent}% complete</strong></section><input class="syllabus-search" id="syllabusSearch" type="search" placeholder="Search syllabus…">${syllabus.topics.map((topic, ti) => `<details class="syllabus-topic" open><summary><span>${escapeHtml(topic.name)}</span><small>${escapeHtml(topic.subtopic)} · ${topic.points.length}</small></summary><div class="dot-list">${topic.points.map((text, pi) => { const id = syllabusId(key,ti,pi); return `<label class="dot-point ${completed(id) ? 'complete' : ''}" data-search="${escapeHtml((topic.name+' '+topic.subtopic+' '+text).toLowerCase())}"><input type="checkbox" data-id="${id}" ${completed(id) ? 'checked' : ''}><span>${escapeHtml(text)}</span></label>`; }).join('')}</div></details>`).join('')}`;
+  view.querySelectorAll('input[type=checkbox]').forEach(box => box.onchange = () => { syllabusProgress[box.dataset.id] = box.checked ? 'complete' : 'incomplete'; saveProgress(); renderSyllabusTracker(); if (typeof renderDashboard === 'function') renderDashboard(); });
+  view.querySelector('#syllabusSearch').oninput = e => view.querySelectorAll('.dot-point').forEach(row => row.hidden = !row.dataset.search.includes(e.target.value.toLowerCase()));
 }
-
-async function initSyllabus() {
-  await loadSyllabusProgress(currentSubject);
-  renderSyllabusTracker();
-}
-
+function initSyllabus() { renderSyllabusTracker(); }
