@@ -1,23 +1,18 @@
 /**
  * Progress Dashboard and Statistics
+ * Uses localStorage for persistent progress tracking
  */
 
-async function loadAllProgress() {
-  const stats = {};
-  const subjectKeys = Object.keys(SUBJECTS);
-  
-  for (const key of subjectKeys) {
-    try {
-      const res = await fetch(`/api/progress?subject=${key}`);
-      if (res.ok) {
-        stats[key] = await res.json();
-      }
-    } catch (err) {
-      stats[key] = {};
-    }
+const SYLLABUS_PROGRESS_KEY = 'hsc-syllabus-progress';
+
+function loadAllProgress() {
+  try {
+    const stored = localStorage.getItem(SYLLABUS_PROGRESS_KEY);
+    return stored ? JSON.parse(stored) : {};
+  } catch (err) {
+    console.error('Failed to load progress from localStorage:', err);
+    return {};
   }
-  
-  return stats;
 }
 
 function calculateStats(subject, progress) {
@@ -45,7 +40,7 @@ function calculateStats(subject, progress) {
 }
 
 async function renderDashboard() {
-  const allStats = await loadAllProgress();
+  const allProgress = loadAllProgress();
   const dashboardView = document.getElementById('dashboardView');
   
   if (!dashboardView) return;
@@ -57,7 +52,7 @@ async function renderDashboard() {
   
   Object.keys(SUBJECTS).forEach(key => {
     const subject = SUBJECTS[key];
-    const stats = calculateStats(key, allStats[key] || {});
+    const stats = calculateStats(key, allProgress || {});
     
     totalAll += stats.total;
     greenAll += stats.green;

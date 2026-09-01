@@ -1,36 +1,29 @@
 /**
  * Syllabus tracking functionality
- * Uses embedded HSC_SYLLABUS data
+ * Uses embedded HSC_SYLLABUS data and localStorage for persistence
  */
 
 let syllabusProgress = {};
 let currentSyllabusSubject = null;
+const SYLLABUS_PROGRESS_KEY = 'hsc-syllabus-progress';
 
-async function loadSyllabusProgress(subjectKey) {
+function loadSyllabusProgress(subjectKey) {
   try {
-    const res = await fetch(`/api/progress?subject=${subjectKey}`);
-    if (res.ok) {
-      syllabusProgress = await res.json();
-    }
+    const stored = localStorage.getItem(SYLLABUS_PROGRESS_KEY);
+    syllabusProgress = stored ? JSON.parse(stored) : {};
   } catch (err) {
-    console.error('Failed to load progress:', err);
+    console.error('Failed to load progress from localStorage:', err);
     syllabusProgress = {};
   }
 }
 
-async function saveDotPointStatus(dotPointId, status) {
+function saveDotPointStatus(dotPointId, status) {
   const subjectKey = currentSyllabusSubject;
   try {
-    const res = await fetch('/api/progress', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ subject: subjectKey, dotPointId, status })
-    });
-    if (res.ok) {
-      syllabusProgress[dotPointId] = status;
-    }
+    syllabusProgress[dotPointId] = status;
+    localStorage.setItem(SYLLABUS_PROGRESS_KEY, JSON.stringify(syllabusProgress));
   } catch (err) {
-    console.error('Failed to save progress:', err);
+    console.error('Failed to save progress to localStorage:', err);
   }
 }
 
@@ -38,6 +31,8 @@ function renderSyllabusTracker() {
   const syllabusView = document.getElementById('syllabusView');
   const subjectKey = currentSubject;
   currentSyllabusSubject = subjectKey;
+
+  loadSyllabusProgress(subjectKey);
 
   const syllabus = HSC_SYLLABUS[subjectKey];
   if (!syllabus) {
@@ -73,11 +68,11 @@ function renderSyllabusTracker() {
 
   // Attach click handlers to all status buttons
   document.querySelectorAll('.status-btn').forEach(btn => {
-    btn.onclick = async (e) => {
+    btn.onclick = (e) => {
       e.preventDefault();
       const dotPointId = btn.dataset.id;
       const newStatus = btn.dataset.status;
-      await saveDotPointStatus(dotPointId, newStatus);
+      saveDotPointStatus(dotPointId, newStatus);
 
       const dotPointEl = document.getElementById(`dp-${dotPointId}`);
       dotPointEl.classList.remove('red', 'orange', 'green');

@@ -15,10 +15,14 @@ export default async function handler(req, res) {
   }
 
   try {
+    const seenContext = seenQuestionIds && seenQuestionIds.length > 0
+      ? `\n\nIMPORTANT: The student has already seen ${seenQuestionIds.length} question(s) on this topic. Generate a COMPLETELY DIFFERENT question that tests a different aspect or angle of "${topic}". Do NOT repeat concepts from previously seen questions.`
+      : '';
+
     const prompt =
       mode === 'practice'
         ? `You are an experienced NESA HSC exam writer for the subject "${subject}", topic "${topic}".
-Write ONE original, exam-style HSC practice question for this topic, in the real style and phrasing NESA uses in actual HSC papers (not a generic template). Choose an appropriate mark value (3, 4, 6 or 8) and write detailed marking criteria in the real NESA band-descriptor style used in marking guidelines.
+Write ONE original, exam-style HSC practice question for this topic, in the real style and phrasing NESA uses in actual HSC papers (not a generic template). Choose an appropriate mark value (3, 4, 6 or 8) and write detailed marking criteria in the real NESA band-descriptor style used in marking guidelines.${seenContext}
 
 Respond ONLY with valid JSON, no markdown fences, no preamble, in exactly this shape:
 {
@@ -28,7 +32,7 @@ Respond ONLY with valid JSON, no markdown fences, no preamble, in exactly this s
  "criteria": "band descriptors as a single string, separated by \\n, e.g. '4 marks: ...\\n2-3 marks: ...\\n1 mark: ...'"
 }`
         : `You are an experienced NESA HSC exam writer for the subject "${subject}", topic "${topic}".
-Write ONE original, exam-style multiple-choice question for this topic, in the real style NESA uses in actual HSC papers. It must have exactly 4 options, only one correct. Each option must be a SHORT self-contained phrase (under 10 words).
+Write ONE original, exam-style multiple-choice question for this topic, in the real style NESA uses in actual HSC papers. It must have exactly 4 options, only one correct. Each option must be a SHORT self-contained phrase (under 10 words).${seenContext}
 
 Respond ONLY with valid JSON, no markdown fences, no preamble, in exactly this shape:
 {
