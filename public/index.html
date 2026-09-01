@@ -65,6 +65,24 @@ var SUBJECTS={};var _K={t:"topic",q:"q",a:"a",c:"criteria",m:"marks",y:"type",o:
 <script src="theme.js"></script>
 <script src="user-session.js"></script>
 <script>
+const subjectKeys = Object.keys(SUBJECTS);
+let currentSubject = subjectKeys[0];
+let currentTopic = 'All';
+let currentMode = 'flash';
+let cardIndex = 0;
+let flipped = false;
+let practiceIndex = 0;
+let criteriaShown = false;
+let lastFeedback = null;
+let essayIndex = 0;
+let essayCriteriaShown = false;
+let lastEssayFeedback = null;
+let mcqIndex = 0;
+let mcqScore = { correct: 0, total: 0 };
+let mcqShuffled = [];
+let mcqAnswered = false;
+let mcqSelectedIndex = null;
+
 function getTopics(s){return['All',...new Set([...s.cards.map(c=>c.topic),...s.practice.map(p=>p.topic),...(s.essay||[]).map(e=>e.topic),...(s.notes||[]).map(n=>n.topic),...(s.mcq||[]).map(m=>m.topic)])]}
 function fCards(s){return currentTopic==='All'?s.cards:s.cards.filter(c=>c.topic===currentTopic)}
 function fPractice(s){return currentTopic==='All'?s.practice:s.practice.filter(p=>p.topic===currentTopic)}
