@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { subject, topic, mode } = req.body || {};
+  const { subject, topic, mode, userId, seenQuestionIds } = req.body || {};
   if (!subject || !topic || (mode !== 'practice' && mode !== 'mcq')) {
     return res.status(400).json({ error: 'Missing subject, topic, or invalid mode' });
   }
