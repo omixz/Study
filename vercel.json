@@ -1,7 +1,9 @@
 {
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
-  "env": [
-    "GROQ_API_KEY"
-  ]
+  "env": {
+    "GROQ_API_KEY": {
+      "description": "API key for Groq"
+    }
+  }
 }
