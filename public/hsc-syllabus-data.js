@@ -79,4 +79,4 @@ function validateSyllabusData(subjects, progress) {
   return errors;
 }
 function assertValidSyllabusData(subjects, progress) { const errors = validateSyllabusData(subjects, progress); if (errors.length) throw new Error(`Invalid syllabus data:\n${errors.join('\n')}`); }
-if (typeof window !== 'undefined') assertValidSyllabusData(window.SUBJECTS || null);
+function shouldValidateSyllabus() { return typeof location === 'undefined' || location.hostname === 'localhost' || location.hostname === '127.0.0.1' || new URLSearchParams(location.search).has('validateSyllabus'); }

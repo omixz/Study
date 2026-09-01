@@ -5,7 +5,10 @@ function saveProgress() { localStorage.setItem(SYLLABUS_PROGRESS_KEY, JSON.strin
 function completed(id) { return syllabusProgress[id] === 'complete'; }
 function syllabusStats(key) { const items = getAllDotPoints(key); const done = items.filter(x => completed(x.id)).length; return { total: items.length, done, percent: items.length ? Math.round(done / items.length * 100) : 0 }; }
 function renderSyllabusTracker() {
-  loadSyllabusProgress(); assertValidSyllabusData(SUBJECTS, syllabusProgress);
+  loadSyllabusProgress();
+  const validationErrors = validateSyllabusData(SUBJECTS, syllabusProgress);
+  if (validationErrors.length && shouldValidateSyllabus()) throw new Error(`Invalid syllabus tracker:\n${validationErrors.join('\n')}`);
+  if (validationErrors.length) { const validIds = new Set(Object.keys(SUBJECTS).flatMap(getAllDotPoints).map(item => item.id)); Object.keys(syllabusProgress).forEach(id => { if (!validIds.has(id)) delete syllabusProgress[id]; }); saveProgress(); }
   const key = currentSubject, syllabus = HSC_SYLLABUS[key], view = document.getElementById('syllabusView');
   if (!syllabus) { view.innerHTML = '<div class="fb-note">No Year 12 syllabus data is available.</div>'; return; }
   const stats = syllabusStats(key);

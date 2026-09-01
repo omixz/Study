@@ -106,5 +106,17 @@ function setUserDisplayName(name) {
   localStorage.setItem(USERS_DB_KEY, JSON.stringify(db));
 }
 
-console.log('User ID:', getUserId());
-console.log('Profile:', getUserProfile());
+const FLASHCARD_REVIEW_KEY = 'hsc-flashcard-reviews';
+
+function recordFlashcardReviewed(subject, topic, question) {
+  const reviewed = JSON.parse(localStorage.getItem(FLASHCARD_REVIEW_KEY) || '{}');
+  const key = btoa(`${subject}\u0000${topic}\u0000${question}`);
+  reviewed[key] = { subject, reviewedAt: new Date().toISOString() };
+  localStorage.setItem(FLASHCARD_REVIEW_KEY, JSON.stringify(reviewed));
+}
+
+function getFlashcardReviewStats() {
+  const reviewed = JSON.parse(localStorage.getItem(FLASHCARD_REVIEW_KEY) || '{}');
+  const entries = Object.values(reviewed);
+  return { total: entries.length, recent: entries.filter(item => Date.now() - Date.parse(item.reviewedAt) < 7 * 24 * 60 * 60 * 1000).length };
+}
