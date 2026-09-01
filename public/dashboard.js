@@ -3,8 +3,6 @@
  * Uses localStorage for persistent progress tracking
  */
 
-const SYLLABUS_PROGRESS_KEY = 'hsc-syllabus-progress';
-
 function loadAllProgress() {
   try {
     const stored = localStorage.getItem(SYLLABUS_PROGRESS_KEY);
