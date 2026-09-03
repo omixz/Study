@@ -32,25 +32,26 @@ Respond ONLY with valid JSON, no markdown fences, no preamble, in exactly this s
  "criteria": "band descriptors as a single string, separated by \\n, e.g. '4 marks: ...\\n2-3 marks: ...\\n1 mark: ...'"
 }`
         : `You are an experienced NESA HSC exam writer for the subject "${subject}", topic "${topic}".
-Write ONE original, exam-style multiple-choice question for this topic, in the real style NESA uses in actual HSC papers. It must have exactly 4 options, only one correct. Each option must be a SHORT self-contained phrase (under 10 words).${seenContext}
+Write exactly 12 original, exam-style multiple-choice questions for this topic, in the real style NESA uses in actual HSC papers. Cover different syllabus points, themes or challenges rather than repeating the same fact. Every question must have exactly 4 options, only one correct. Each option must be a SHORT self-contained phrase (under 10 words).${seenContext}
 
 Respond ONLY with valid JSON, no markdown fences, no preamble, in exactly this shape:
 {
- "q": "the question text",
- "options": ["option A", "option B", "option C", "option D"],
- "correctIndex": <0-3, index of the correct option>,
- "explain": "one sentence explaining why the correct answer is correct"
+ "questions": [
+   { "q": "the question text", "options": ["option A", "option B", "option C", "option D"], "correctIndex": <0-3, index of the correct option>, "explain": "one sentence explaining why the correct answer is correct" }
+ ]
 }`;
 
     const text = await callGroqApi(
       prompt,
-      mode === 'practice' ? 700 : 500,
+      mode === 'practice' ? 700 : 4000,
       0.9
     );
     const parsed = extractJSON(text);
 
     if (mode === 'practice') {
       parsed.topic = topic;
+    } else if (!Array.isArray(parsed.questions) || parsed.questions.length < 10 || parsed.questions.length > 20) {
+      throw new Error('The model did not return 10–20 multiple-choice questions. Please try again.');
     }
 
     res.status(200).json(parsed);

@@ -22,13 +22,13 @@ Infer the most sensible HSC subject/course this belongs to and build a compact, 
 Respond ONLY with valid JSON, no markdown fences, no preamble, in exactly this shape:
 {
  "label": "short subject/course name, e.g. 'Modern History: Russia'",
- "cards": [ { "topic": "topic name", "q": "flashcard front", "a": "flashcard back" } ],
+ "cards": [ { "topic": "syllabus point, theme or challenge name", "q": "one direct revision question for that single syllabus point/theme/challenge", "a": "concise, accurate answer" } ],
  "practice": [ { "topic": "topic name", "type": "Short answer" or "Extended response", "marks": 3, "q": "question text", "criteria": "band descriptors as one string separated by \\n" } ],
  "essay": [ { "topic": "topic name", "part": "e.g. 'Introduction', 'Conclusion', 'Body Paragraph', 'Executive Summary'", "marks": 3, "q": "a task asking the student to write ONLY that one part of a larger essay/report/response", "criteria": "band descriptors as one string separated by \\n, ending with a note that only this part should be marked" } ],
  "mcq": [ { "topic": "topic name", "q": "question text", "options": ["a","b","c","d"], "correctIndex": 0, "explain": "one sentence" } ],
  "notes": [ { "topic": "topic name", "points": [ { "point": "short heading", "info": "1-2 sentence explanation" } ] } ]
 }
-Include exactly 4 options for every MCQ, each option a SHORT self-contained phrase (under 10 words) - never a truncated long sentence. Include 8 cards and 6 mcq spread across 2-3 topics, 4 practice questions (mix of marks values), 2 essay-part questions (each a different part, e.g. one introduction and one conclusion or body paragraph), and notes covering the same topics with 3-4 points each. Keep it accurate and exam-relevant, not padded.`;
+Include exactly 4 options for every MCQ, each option a SHORT self-contained phrase (under 10 words) - never a truncated long sentence. Create exactly ONE flashcard for EACH distinct syllabus point, theme or challenge you identify. Never combine two syllabus points/themes/challenges in one flashcard; each card must test a single learnable idea in direct revision wording (for example, "What is outsourcing?"). Include 10-20 MCQs (aim for 12) spread across the same topics, 4 practice questions (mix of marks values), 2 essay-part questions (each a different part, e.g. one introduction and one conclusion or body paragraph), and notes covering the same topics with 3-4 points each. Keep it accurate and exam-relevant, not padded.`;
 
     const text = await callGroqApi(prompt, 4000, 0.7);
     const parsed = extractJSON(text);
