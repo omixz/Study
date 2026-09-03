@@ -68,7 +68,16 @@ function getQuestionsSeenByUser() {
 }
 
 function getUniqueQuestionId(subject, topic, content) {
-  return btoa(`${subject}-${topic}-${JSON.stringify(content)}`).slice(0, 24);
+  // btoa only accepts Latin-1, while generated questions can contain smart
+  // quotes, accented names and other Unicode characters. Use a deterministic
+  // string hash instead, so every generated question can be recorded safely.
+  const value = `${subject}-${topic}-${JSON.stringify(content)}`;
+  let hash = 2166136261;
+  for (const character of value) {
+    hash ^= character.codePointAt(0);
+    hash = Math.imul(hash, 16777619);
+  }
+  return `question-${(hash >>> 0).toString(36)}`;
 }
 
 function updateUserStats(mode, statKey, increment = 1) {

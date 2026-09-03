@@ -41,3 +41,23 @@ test('the CAFS deck excludes Individuals and Work from every learning mode', asy
     );
   }
 });
+
+test('generated question IDs support Unicode question text', async () => {
+  const storage = new Map();
+  const context = vm.createContext({
+    console: { log() {} },
+    Date,
+    Math,
+    localStorage: {
+      getItem: (key) => storage.get(key) || null,
+      setItem: (key, value) => storage.set(key, value)
+    }
+  });
+  vm.runInContext(await readFile('public/user-session.js', 'utf8'), context);
+  const getQuestionId = vm.runInContext('getUniqueQuestionId', context);
+
+  assert.match(
+    getQuestionId('CAFS', 'Parenting and Caring', 'Explain “wellbeing” and José’s role.'),
+    /^question-[a-z0-9]+$/
+  );
+});
