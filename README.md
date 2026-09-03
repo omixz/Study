@@ -23,7 +23,7 @@ Generate a complete revision set for a topic.
 **Response:** Complete revision set with cards, practice questions, essays, MCQs, and notes.
 
 ### POST `/api/question`
-Generate a single practice question or MCQ.
+Generate a single practice question, or a batch of 12 multiple-choice questions covering different aspects of the selected topic.
 
 **Request:**
 ```json
