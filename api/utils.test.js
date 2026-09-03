@@ -1,8 +1,9 @@
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import test from 'node:test';
+import vm from 'node:vm';
 
 import { getGroqApiKey } from './utils.js';
-import { validateFlashcards } from './flashcards.js';
 
 test('getGroqApiKey prefers the canonical Groq environment variable', () => {
   assert.equal(
@@ -21,18 +22,24 @@ test('getGroqApiKey ignores empty values', () => {
   assert.equal(getGroqApiKey({ GROQ_API_KEY: '' }), undefined);
 });
 
-test('validateFlashcards returns cards in syllabus order and requires every dot point', () => {
-  const dotPoints = [
-    { id: 'business-Finance-0', topic: 'Finance', text: 'Analyse budgeting' },
-    { id: 'business-Finance-1', topic: 'Finance', text: 'Examine cash flow' }
+test('every checked-in syllabus dot point has an immediately available flashcard', async () => {
+  const context = vm.createContext({ SUBJECTS: {} });
+  const files = [
+    'public/hsc-syllabus-data.js',
+    'public/data-cafs.js',
+    'public/data-business.js',
+    'public/data-legal.js',
+    'public/data-english.js',
+    'public/syllabus-flashcards.js'
   ];
-  const cards = validateFlashcards([
-    { id: 'business-Finance-1', topic: 'Finance', q: 'What is cash flow?', a: 'Money in and out.' },
-    { id: 'business-Finance-0', topic: 'Finance', q: 'Why budget?', a: 'To plan resources.' }
-  ], dotPoints);
-  assert.deepEqual(cards.map((card) => card.id), ['business-Finance-0', 'business-Finance-1']);
-  assert.throws(
-    () => validateFlashcards(cards.slice(0, 1), dotPoints),
-    /missed 1 syllabus dot point/
-  );
+  for (const file of files) {
+    vm.runInContext(await readFile(file, 'utf8'), context, { filename: file });
+  }
+
+  const syllabusData = vm.runInContext('HSC_SYLLABUS', context);
+  for (const [subjectKey, syllabus] of Object.entries(syllabusData)) {
+    const expected = Object.values(syllabus.topics).flat().length;
+    const cards = context.SUBJECTS[subjectKey].cards.filter((card) => card.syllabusCard);
+    assert.equal(cards.length, expected, `${subjectKey} should cover every dot point`);
+  }
 });
