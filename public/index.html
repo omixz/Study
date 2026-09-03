@@ -60,8 +60,6 @@ var SUBJECTS={};var _K={t:"topic",q:"q",a:"a",c:"criteria",m:"marks",y:"type",o:
 <script src="data-legal.js"></script>
 <script src="data-english.js"></script>
 <script>Object.keys(SUBJECTS).forEach(function(k){var s=SUBJECTS[k];["cards","practice","essay","mcq","notes"].forEach(function(f){if(s[f])s[f]=_R(s[f])})});</script>
-<script src="syllabus-flashcards.js"></script>
-<script src="syllabus-questions.js"></script>
 <script src="syllabus-tracker.js"></script>
 <script src="dashboard.js"></script>
 <script src="theme.js"></script>
@@ -85,7 +83,7 @@ let mcqShuffled = [];
 let mcqAnswered = false;
 let mcqSelectedIndex = null;
 
-function getTopics(s){const syllabusTopics=HSC_SYLLABUS[currentSubject]?Object.keys(HSC_SYLLABUS[currentSubject].topics):[];return['All',...new Set([...syllabusTopics,...s.cards.map(c=>c.topic),...s.practice.map(p=>p.topic),...(s.essay||[]).map(e=>e.topic),...(s.notes||[]).map(n=>n.topic),...(s.mcq||[]).map(m=>m.topic)])]}
+function getTopics(s){return['All',...new Set([...s.cards.map(c=>c.topic),...s.practice.map(p=>p.topic),...(s.essay||[]).map(e=>e.topic),...(s.notes||[]).map(n=>n.topic),...(s.mcq||[]).map(m=>m.topic)])]}
 function fCards(s){return currentTopic==='All'?s.cards:s.cards.filter(c=>c.topic===currentTopic)}
 function fPractice(s){return currentTopic==='All'?s.practice:s.practice.filter(p=>p.topic===currentTopic)}
 function fEssay(s){const i=s.essay||[];return currentTopic==='All'?i:i.filter(e=>e.topic===currentTopic)}

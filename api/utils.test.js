@@ -1,7 +1,5 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
 import test from 'node:test';
-import vm from 'node:vm';
 
 import { getGroqApiKey, getGroqModel } from './utils.js';
 
@@ -25,37 +23,4 @@ test('getGroqApiKey ignores empty values', () => {
 test('getGroqModel uses a supported default and allows an explicit override', () => {
   assert.equal(getGroqModel({}), 'openai/gpt-oss-120b');
   assert.equal(getGroqModel({ GROQ_MODEL: ' custom-model ' }), 'custom-model');
-});
-
-test('every checked-in syllabus dot point has an immediately available flashcard', async () => {
-  const context = vm.createContext({ SUBJECTS: {} });
-  const files = [
-    'public/hsc-syllabus-data.js',
-    'public/data-cafs.js',
-    'public/data-business.js',
-    'public/data-legal.js',
-    'public/data-english.js',
-    'public/syllabus-flashcards.js',
-    'public/syllabus-questions.js'
-  ];
-  for (const file of files) {
-    vm.runInContext(await readFile(file, 'utf8'), context, { filename: file });
-  }
-
-  const syllabusData = vm.runInContext('HSC_SYLLABUS', context);
-  for (const [subjectKey, syllabus] of Object.entries(syllabusData)) {
-    const expected = Object.values(syllabus.topics).flat().length;
-    const cards = context.SUBJECTS[subjectKey].cards.filter((card) => card.syllabusCard);
-    assert.equal(cards.length, expected, `${subjectKey} should cover every dot point`);
-    for (const topic of Object.keys(syllabus.topics)) {
-      assert.ok(
-        context.SUBJECTS[subjectKey].practice.some((question) => question.topic === topic),
-        `${subjectKey}/${topic} should have a static short-answer question`
-      );
-      assert.ok(
-        context.SUBJECTS[subjectKey].mcq.some((question) => question.topic === topic),
-        `${subjectKey}/${topic} should have a static multiple-choice question`
-      );
-    }
-  }
 });
