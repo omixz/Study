@@ -68,6 +68,21 @@ function getSyllabusData() { return HSC_SYLLABUS; }
 function getSubjectSyllabus(subjectKey) { return HSC_SYLLABUS[subjectKey] || null; }
 function getAllDotPoints(subjectKey) { const s = HSC_SYLLABUS[subjectKey]; return s ? s.topics.flatMap((t, ti) => t.points.map((text, pi) => ({ id: syllabusId(subjectKey, ti, pi), topic: t.name, subtopic: t.subtopic, text, order: [ti, pi] }))) : []; }
 
+// Every tracker item has at least one revision prompt. Existing authored cards
+// remain untouched; these syllabus-linked cards fill only the coverage gaps.
+function ensureSyllabusFlashcards(subjects) {
+  Object.keys(subjects || {}).forEach(subjectKey => {
+    const subject = subjects[subjectKey];
+    if (!HSC_SYLLABUS[subjectKey] || !subject) return;
+    subject.cards = subject.cards || [];
+    const covered = new Set(subject.cards.map(card => card.syllabusId));
+    getAllDotPoints(subjectKey).forEach(point => {
+      if (covered.has(point.id)) return;
+      subject.cards.push({ t: point.topic, q: `What does the HSC syllabus require you to do for ${point.topic}: ${point.subtopic}?`, a: point.text, syllabusId: point.id });
+    });
+  });
+}
+
 function validateSyllabusData(subjects, progress) {
   const errors = [], allIds = new Set();
   Object.keys(subjects || HSC_SYLLABUS).forEach(key => {
