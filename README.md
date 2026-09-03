@@ -42,6 +42,9 @@ Mark a student's response using AI.
 { "prompt": "Mark this essay response..." }
 ```
 
+### POST `/api/flashcards`
+Generate one flashcard for every supplied syllabus dot point. The app uses this endpoint when **Generate syllabus flashcards** is selected, then keeps the generated deck in browser storage for future visits.
+
 ## Setup
 
 1. Clone the repository
