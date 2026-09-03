@@ -32,7 +32,7 @@ export async function callGroqApi(prompt, maxTokens = 700, temperature = 0.7) {
       'Authorization': `Bearer ${apiKey}`
     },
     body: JSON.stringify({
-      model: 'llama-3.3-70b-versatile',
+      model: process.env.GROQ_MODEL || 'openai/gpt-oss-120b',
       max_tokens: maxTokens,
       temperature: temperature,
       messages: [{ role: 'user', content: prompt }]
