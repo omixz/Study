@@ -53,7 +53,7 @@ Mark a student's response using AI.
 
 - `GROQ_API_KEY`: Your Groq API key (recommended and required for new deployments).
 - `GROQ_APIKEY`, `GROQ_KEY`, `GroqAPI`, and `GroqApi`: Supported legacy key names. The first non-empty value is used in that order.
-- `GROQ_MODEL`: Optional Groq model override. Defaults to `llama-3.3-70b-versatile`.
+- `GROQ_MODEL`: Optional Groq model override. Defaults to `openai/gpt-oss-120b`. Remove an old `GROQ_MODEL=llama-3.3-70b-versatile` Vercel setting, or update it to a model available to your Groq account.
 
 After adding or changing an environment variable in Vercel, redeploy the project so the serverless API functions receive the updated value. Do not expose the key to browser code or commit it to a `.env` file.
 

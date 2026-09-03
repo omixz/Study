@@ -13,7 +13,9 @@ const GROQ_KEY_ENV_VARS = [
   'GroqApi'
 ];
 
-const DEFAULT_GROQ_MODEL = 'llama-3.3-70b-versatile';
+// llama-3.3-70b-versatile has been retired by Groq. This current production
+// model is used unless a deployment supplies its own GROQ_MODEL override.
+const DEFAULT_GROQ_MODEL = 'openai/gpt-oss-120b';
 
 /** Get the configured Groq API key, ignoring empty environment values. */
 export function getGroqApiKey(env = process.env) {
@@ -25,6 +27,13 @@ export function getGroqApiKey(env = process.env) {
   }
 
   return undefined;
+}
+
+/** Get the configured model, using a currently supported Groq default. */
+export function getGroqModel(env = process.env) {
+  return typeof env.GROQ_MODEL === 'string' && env.GROQ_MODEL.trim()
+    ? env.GROQ_MODEL.trim()
+    : DEFAULT_GROQ_MODEL;
 }
 
 /**
@@ -48,7 +57,7 @@ export async function callGroqApi(prompt, maxTokens = 700, temperature = 0.7) {
     );
   }
 
-  const model = process.env.GROQ_MODEL?.trim() || DEFAULT_GROQ_MODEL;
+  const model = getGroqModel();
   const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
     method: 'POST',
     headers: {
