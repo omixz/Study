@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import test from 'node:test';
+import vm from 'node:vm';
 
 import { getGroqApiKey, getGroqModel } from './utils.js';
 
@@ -23,4 +25,19 @@ test('getGroqApiKey ignores empty values', () => {
 test('getGroqModel uses a supported default and allows an explicit override', () => {
   assert.equal(getGroqModel({}), 'openai/gpt-oss-120b');
   assert.equal(getGroqModel({ GROQ_MODEL: ' custom-model ' }), 'custom-model');
+});
+
+test('the CAFS deck excludes Individuals and Work from every learning mode', async () => {
+  const context = vm.createContext({ SUBJECTS: {} });
+  for (const file of ['public/data-cafs.js', 'public/cafs-selection.js']) {
+    vm.runInContext(await readFile(file, 'utf8'), context, { filename: file });
+  }
+
+  for (const collection of ['cards', 'practice', 'essay', 'mcq', 'notes']) {
+    assert.equal(
+      context.SUBJECTS.cafs[collection].some((item) => item.t === 'Individuals and Work'),
+      false,
+      `${collection} should not include Individuals and Work`
+    );
+  }
 });
