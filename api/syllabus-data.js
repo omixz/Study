@@ -1,7 +1,8 @@
 /**
  * Server-side copy of the HSC syllabus dot points, used to generate
  * syllabus-aligned flashcards (api/generate.js) - one flashcard per
- * "students learn to" dot point.
+ * "students learn to" dot point (plus, for Legal Studies, one per official
+ * "theme and challenge" for that topic).
  *
  * NOTE: /public/hsc-syllabus-data.js is loaded as a plain <script> in the
  * browser (not an ES module) and holds the source of truth for the UI.
@@ -87,25 +88,46 @@ export const HSC_SYLLABUS = {
         'Examine the stages of the criminal investigation process, including the powers of police',
         'Analyse the purposes and processes of the criminal trial, including the roles of key personnel',
         'Evaluate the factors considered in sentencing and the range of penalties available to courts',
-        'Assess how the criminal justice system responds differently to young offenders'
+        'Assess how the criminal justice system responds differently to young offenders',
+        'Evaluate the role discretion plays throughout the criminal justice system (theme and challenge)',
+        'Analyse issues of compliance and non-compliance with criminal law (theme and challenge)',
+        'Assess the extent to which criminal law reflects moral and ethical standards (theme and challenge)',
+        'Examine the role of law reform in the criminal justice system (theme and challenge)',
+        'Evaluate how the law balances the rights of victims, offenders and society (theme and challenge)',
+        'Assess the effectiveness of legal and non-legal measures in achieving justice for crime (theme and challenge)'
       ],
       'Human Rights': [
         'Explain the nature and origins of universal human rights',
         'Analyse the role of the United Nations and other international instruments in promoting human rights',
         'Evaluate the effectiveness of domestic and international mechanisms in enforcing human rights',
-        'Assess a contemporary human rights issue and the extent to which it is being addressed by law'
+        'Assess a contemporary human rights issue and the extent to which it is being addressed by law',
+        'Examine the changing relationship between state sovereignty and human rights (theme and challenge)',
+        'Analyse issues of compliance and non-compliance with human rights law (theme and challenge)',
+        'Assess how human rights have developed in response to changing values and ethical standards (theme and challenge)',
+        'Evaluate the role of law reform in protecting human rights (theme and challenge)',
+        'Assess the effectiveness of legal and non-legal measures in protecting human rights (theme and challenge)'
       ],
       'Family': [
         'Examine the legal requirements for a valid marriage and the recognition of de facto relationships',
         'Analyse the legal processes and consequences involved in divorce and separation',
         'Evaluate how the law responds to the care and protection of children in changing family relationships',
-        'Assess the effectiveness of the law in responding to domestic violence and family conflict'
+        'Assess the effectiveness of the law in responding to domestic violence and family conflict',
+        'Evaluate how the law encourages cooperation and resolves conflict regarding family (theme and challenge)',
+        'Analyse issues of compliance and non-compliance with family law (theme and challenge)',
+        'Assess how family law has changed in response to changing community values (theme and challenge)',
+        'Examine the role of law reform in achieving just outcomes for family members (theme and challenge)',
+        'Evaluate the effectiveness of legal and non-legal responses in achieving just outcomes for family members (theme and challenge)'
       ],
       'Indigenous Peoples': [
         'Examine the impact of the historical dispossession of Aboriginal and Torres Strait Islander peoples on their legal rights',
         'Analyse the significance of Native Title and land rights legislation for Indigenous Australians',
         'Evaluate the effectiveness of the law in achieving justice for Indigenous peoples within the criminal justice system',
-        'Assess current issues affecting Indigenous Australians, such as constitutional recognition and self-determination'
+        'Assess current issues affecting Indigenous Australians, such as constitutional recognition and self-determination',
+        'Evaluate how the law recognises and protects the rights of Indigenous peoples (theme and challenge)',
+        'Analyse issues of compliance and non-compliance with laws affecting Indigenous peoples (theme and challenge)',
+        'Assess changing values and ethical standards around self-determination and reconciliation (theme and challenge)',
+        'Examine the role of law reform in achieving just outcomes for Indigenous peoples (theme and challenge)',
+        'Evaluate the effectiveness of legal and non-legal responses in achieving just outcomes for Indigenous peoples (theme and challenge)'
       ]
     }
   },
