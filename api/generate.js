@@ -3,11 +3,13 @@
  * Generate a complete revision set (flashcards, practice, essay, MCQ, notes) for a topic.
  *
  * If the input matches a known HSC syllabus subject (e.g. "CAFS", "Legal Studies")
- * or a specific topic within one (e.g. "Groups and Communities"), flashcards are
- * generated deterministically at exactly one card per official "students learn to"
- * dot point, covering every dot point in scope. Practice/essay/mcq/notes still use
- * the general-purpose prompt. Anything that doesn't match the syllabus (a subject
- * we don't have dot-point data for) falls back to the original freeform behaviour.
+ * or a specific topic within one (e.g. "Groups and Communities"), flashcards AND
+ * practice questions are both generated deterministically at exactly one item per
+ * official "students learn to" dot point, covering every topic in scope. Essay/mcq/
+ * notes still use the general-purpose prompt (they don't map 1:1 to a single point
+ * the way a flashcard or practice question does). Anything that doesn't match the
+ * syllabus (a subject we don't have dot-point data for) falls back to the original
+ * freeform behaviour for everything.
  */
 import { callGroqApi, extractJSON } from './utils.js';
 import { matchSyllabusScope } from './syllabus-data.js';
@@ -34,21 +36,40 @@ export default async function handler(req, res) {
   }
 }
 
-async function generateFreeform(topic) {
+/**
+ * @param {string} topic
+ * @param {string[]} [only] - if provided, restricts the requested JSON shape to just
+ *   these fields (used when cards/practice are already covered by the syllabus-scoped
+ *   generators, so we don't waste tokens/quality asking the model to also produce them).
+ */
+async function generateFreeform(topic, only) {
+  const fields = {
+    label: `"label": "short subject/course name, e.g. 'Modern History: Russia'",`,
+    cards: `"cards": [ { "topic": "topic name", "q": "flashcard front", "a": "flashcard back" } ],`,
+    practice: `"practice": [ { "topic": "topic name", "type": "Short answer" or "Extended response", "marks": 3, "q": "question text", "criteria": "band descriptors as one string separated by \\n" } ],`,
+    essay: `"essay": [ { "topic": "topic name", "part": "e.g. 'Introduction', 'Conclusion', 'Body Paragraph', 'Executive Summary'", "marks": 3, "q": "a task asking the student to write ONLY that one part of a larger essay/report/response", "criteria": "band descriptors as one string separated by \\n, ending with a note that only this part should be marked" } ],`,
+    mcq: `"mcq": [ { "topic": "topic name", "q": "question text", "options": ["a","b","c","d"], "correctIndex": 0, "explain": "one sentence" } ],`,
+    notes: `"notes": [ { "topic": "topic name", "points": [ { "point": "short heading", "info": "1-2 sentence explanation" } ] } ]`
+  };
+  const wanted = only && only.length ? ['label', ...only] : Object.keys(fields);
+  const shape = wanted.map((k) => fields[k]).join('\n ').replace(/,$/, '');
+
+  const instructions = [];
+  if (wanted.includes('cards')) instructions.push('8 cards spread across 2-3 topics');
+  if (wanted.includes('mcq')) instructions.push('6 mcq spread across 2-3 topics');
+  if (wanted.includes('practice')) instructions.push('4 practice questions (mix of marks values)');
+  if (wanted.includes('essay')) instructions.push('2 essay-part questions (each a different part, e.g. one introduction and one conclusion or body paragraph)');
+  if (wanted.includes('notes')) instructions.push('notes covering the same topics with 3-4 points each');
+
   const prompt = `You are an experienced HSC teacher and NESA exam writer. A student wants revision material for: "${topic}".
 
 Infer the most sensible HSC subject/course this belongs to and build a compact, genuinely useful revision set in the real NESA style used in actual HSC papers and syllabus documents (no generic filler). All content must be Year 12 / HSC level only.
 
 Respond ONLY with valid JSON, no markdown fences, no preamble, in exactly this shape:
 {
- "label": "short subject/course name, e.g. 'Modern History: Russia'",
- "cards": [ { "topic": "topic name", "q": "flashcard front", "a": "flashcard back" } ],
- "practice": [ { "topic": "topic name", "type": "Short answer" or "Extended response", "marks": 3, "q": "question text", "criteria": "band descriptors as one string separated by \\n" } ],
- "essay": [ { "topic": "topic name", "part": "e.g. 'Introduction', 'Conclusion', 'Body Paragraph', 'Executive Summary'", "marks": 3, "q": "a task asking the student to write ONLY that one part of a larger essay/report/response", "criteria": "band descriptors as one string separated by \\n, ending with a note that only this part should be marked" } ],
- "mcq": [ { "topic": "topic name", "q": "question text", "options": ["a","b","c","d"], "correctIndex": 0, "explain": "one sentence" } ],
- "notes": [ { "topic": "topic name", "points": [ { "point": "short heading", "info": "1-2 sentence explanation" } ] } ]
+ ${shape}
 }
-Include exactly 4 options for every MCQ, each option a SHORT self-contained phrase (under 10 words) - never a truncated long sentence. Include 8 cards and 6 mcq spread across 2-3 topics, 4 practice questions (mix of marks values), 2 essay-part questions (each a different part, e.g. one introduction and one conclusion or body paragraph), and notes covering the same topics with 3-4 points each. Keep it accurate and exam-relevant, not padded.`;
+${wanted.includes('mcq') ? 'Include exactly 4 options for every MCQ, each option a SHORT self-contained phrase (under 10 words) - never a truncated long sentence. ' : ''}Include ${instructions.join(', ')}. Keep it accurate and exam-relevant, not padded.`;
 
   const text = await callGroqApi(prompt, 4000, 0.7);
   return extractJSON(text);
@@ -58,17 +79,19 @@ async function generateFromSyllabus(scope) {
   const { subjectLabel, scopeName, dotPoints } = scope;
   const label = scopeName === subjectLabel ? subjectLabel : `${subjectLabel}: ${scopeName}`;
 
-  // Cards are generated 1:1 against the syllabus dot points (deterministic count).
-  // Practice/essay/mcq/notes reuse the general-purpose generator, scoped to this subject/topic.
-  const [cards, rest] = await Promise.all([
+  // Cards and practice questions are both generated 1:1 against the syllabus dot
+  // points - one of each per point, deterministic count. Essay/mcq/notes reuse the
+  // general-purpose generator (trimmed to just those fields), scoped to this subject/topic.
+  const [cards, practice, rest] = await Promise.all([
     generateSyllabusCards(subjectLabel, dotPoints),
-    generateFreeform(label)
+    generateSyllabusPractice(subjectLabel, dotPoints),
+    generateFreeform(label, ['essay', 'mcq', 'notes'])
   ]);
 
   return {
     label,
     cards,
-    practice: rest.practice || [],
+    practice,
     essay: rest.essay || [],
     mcq: rest.mcq || [],
     notes: rest.notes || []
@@ -103,5 +126,38 @@ The "cards" array must contain exactly ${dotPoints.length} items, in the same or
     topic: dotPoints[i].topic,
     q: c.q,
     a: c.a
+  }));
+}
+
+async function generateSyllabusPractice(subjectLabel, dotPoints) {
+  const list = dotPoints.map((p, i) => `${i + 1}. [${p.topic}] ${p.text}`).join('\n');
+
+  const prompt = `You are an experienced HSC teacher and NESA exam writer setting practice questions for the NSW HSC syllabus subject "${subjectLabel}".
+
+Below is a numbered list of official "students learn to" syllabus dot points. For EACH numbered point, write exactly ONE exam-style practice question that directly tests that specific dot point at Year 12 / HSC level - pick "Short answer" (2-3 marks) for simpler recall/explain points and "Extended response" (4-8 marks) for more analytical/evaluative points, whichever genuinely fits that point. Do not skip, merge or split any point - one question per numbered point, in the same order.
+
+${list}
+
+Respond ONLY with valid JSON, no markdown fences, no preamble, in exactly this shape:
+{ "practice": [ { "type": "Short answer" or "Extended response", "marks": 3, "q": "question text", "criteria": "band descriptors as one string separated by \\n" } ] }
+The "practice" array must contain exactly ${dotPoints.length} items, in the same order as the numbered list above. Keep marks realistic for real NESA papers and criteria genuinely specific to that question, not generic filler.`;
+
+  const maxTokens = Math.min(8000, 600 + dotPoints.length * 220);
+  const text = await callGroqApi(prompt, maxTokens, 0.5);
+  const parsed = extractJSON(text);
+  const raw = Array.isArray(parsed.practice) ? parsed.practice : [];
+
+  if (raw.length !== dotPoints.length) {
+    throw new Error(
+      `Generated ${raw.length} practice questions but ${dotPoints.length} syllabus points were requested - please try again.`
+    );
+  }
+
+  return raw.map((p, i) => ({
+    topic: dotPoints[i].topic,
+    type: p.type,
+    marks: p.marks,
+    q: p.q,
+    criteria: p.criteria
   }));
 }
