@@ -42,6 +42,13 @@ export const HSC_SYLLABUS = {
         'Evaluate the impact of technology on family relationships, community wellbeing and the workplace',
         'Examine issues related to technology use, including privacy, security and copyright',
         'Assess the potential positive and negative impact of an emerging technology on individuals and society'
+      ],
+      'Individuals and Work': [
+        'Compare paid and unpaid work, and full-time, part-time, casual and self-employment work options',
+        "Analyse the personal, social and economic factors that influence an individual's work choices",
+        'Evaluate how patterns of work have changed due to technology, globalisation and economic conditions',
+        'Assess the impact of unemployment and underemployment on individuals, families and communities',
+        'Examine strategies individuals use to balance work with family and personal commitments'
       ]
     }
   },
