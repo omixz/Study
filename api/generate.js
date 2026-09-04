@@ -3,13 +3,18 @@
  * Generate a complete revision set (flashcards, practice, essay, MCQ, notes) for a topic.
  *
  * If the input matches a known HSC syllabus subject (e.g. "CAFS", "Legal Studies")
- * or a specific topic within one (e.g. "Groups and Communities"), flashcards AND
- * practice questions are both generated deterministically at exactly one item per
- * official "students learn to" dot point, covering every topic in scope. Essay/mcq/
- * notes still use the general-purpose prompt (they don't map 1:1 to a single point
- * the way a flashcard or practice question does). Anything that doesn't match the
- * syllabus (a subject we don't have dot-point data for) falls back to the original
- * freeform behaviour for everything.
+ * or a specific topic within one (e.g. "Groups and Communities"):
+ *  - flashcards and practice questions are generated deterministically at exactly
+ *    one item per official "students learn to" dot point, covering every topic
+ *    in scope (not sampled to a couple of topics).
+ *  - mcq is a fixed set of 6 HSC-style questions, but drawn from and grounded in
+ *    that same full list of dot points spanning every topic in scope, rather than
+ *    the freeform generator's default of sampling only 2-3 topics.
+ *  - essay/notes still use the general-purpose prompt (an essay-part task and a
+ *    notes summary don't map 1:1 to a single dot point the way a flashcard, a
+ *    practice question or an MCQ does).
+ * Anything that doesn't match the syllabus (a subject we don't have dot-point
+ * data for) falls back to the original freeform behaviour for everything.
  */
 import { callGroqApi, extractJSON } from './utils.js';
 import { matchSyllabusScope } from './syllabus-data.js';
@@ -80,20 +85,23 @@ async function generateFromSyllabus(scope) {
   const label = scopeName === subjectLabel ? subjectLabel : `${subjectLabel}: ${scopeName}`;
 
   // Cards and practice questions are both generated 1:1 against the syllabus dot
-  // points - one of each per point, deterministic count. Essay/mcq/notes reuse the
-  // general-purpose generator (trimmed to just those fields), scoped to this subject/topic.
-  const [cards, practice, rest] = await Promise.all([
+  // points - one of each per point, deterministic count. MCQ is a fixed set of 6,
+  // grounded in the same dot-point list but spanning the whole scope rather than
+  // 1:1. Essay/notes reuse the general-purpose generator (trimmed to just those
+  // fields), scoped to this subject/topic.
+  const [cards, practice, mcq, rest] = await Promise.all([
     generateSyllabusCards(subjectLabel, dotPoints),
     generateSyllabusPractice(subjectLabel, dotPoints),
-    generateFreeform(label, ['essay', 'mcq', 'notes'])
+    generateSyllabusMcq(subjectLabel, dotPoints),
+    generateFreeform(label, ['essay', 'notes'])
   ]);
 
   return {
     label,
     cards,
     practice,
+    mcq,
     essay: rest.essay || [],
-    mcq: rest.mcq || [],
     notes: rest.notes || []
   };
 }
@@ -160,4 +168,31 @@ The "practice" array must contain exactly ${dotPoints.length} items, in the same
     q: p.q,
     criteria: p.criteria
   }));
+}
+
+async function generateSyllabusMcq(subjectLabel, dotPoints) {
+  const list = dotPoints.map((p, i) => `${i + 1}. [${p.topic}] ${p.text}`).join('\n');
+  const topicCount = new Set(dotPoints.map((p) => p.topic)).size;
+
+  const prompt = `You are an experienced HSC teacher and NESA exam writer setting multiple-choice questions for the NSW HSC syllabus subject "${subjectLabel}".
+
+Below is the full numbered list of official "students learn to" syllabus dot points for this subject/topic.
+
+${list}
+
+Write exactly 6 exam-style multiple-choice questions at Year 12 / HSC level. Each question must be clearly grounded in one of the numbered dot points above (pick 6 different, well-spread points - do not cluster them all in one topic). Spread the 6 questions across as many of the ${topicCount} topic(s) listed as sensibly possible.
+
+Respond ONLY with valid JSON, no markdown fences, no preamble, in exactly this shape:
+{ "mcq": [ { "topic": "topic name", "q": "question text", "options": ["a","b","c","d"], "correctIndex": 0, "explain": "one sentence" } ] }
+The "mcq" array must contain exactly 6 items. Include exactly 4 options per question, each a SHORT self-contained phrase (under 10 words) - never a truncated long sentence. "topic" must exactly match one of the topic names in the numbered list above.`;
+
+  const text = await callGroqApi(prompt, 2500, 0.6);
+  const parsed = extractJSON(text);
+  const raw = Array.isArray(parsed.mcq) ? parsed.mcq : [];
+
+  if (raw.length !== 6) {
+    throw new Error(`Generated ${raw.length} MCQ questions but 6 were requested - please try again.`);
+  }
+
+  return raw;
 }
