@@ -634,5 +634,20 @@ SUBJECTS.english = {
         }
       ]
     }
+  ],
+  "examples": [
+    {
+      "topic": "We Are Australians",
+      "points": [
+        {
+          "point": "Looking for Alibrandi",
+          "info": "Melina Marchetta's novel (also a 2000 film) - the prescribed/related text used to explore migrant identity, generational conflict and belonging in this module."
+        },
+        {
+          "point": "Go Back to Where You Came From",
+          "info": "SBS documentary/reality series - the prescribed/related text used to explore Australian attitudes toward asylum seekers and who is included in national identity."
+        }
+      ]
+    }
   ]
 };
