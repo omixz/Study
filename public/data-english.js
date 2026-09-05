@@ -1,125 +1,638 @@
 // English Studies HSC revision data
 
 SUBJECTS.english = {
-  label: 'English Studies',
-  color: '#B8863B',
-  paper: 'https://nesa.nsw.edu.au/HSC-support-materials/',
-  cards: [
-    { topic: 'Playing the Game', q: 'What does "Playing the Game" explore?', a: 'It explores competition, strategy, rules, winning, losing, teamwork, and how games reflect broader social values and power dynamics.' },
-    { topic: 'Playing the Game', q: 'How do games relate to social power?', a: 'Games reflect and reinforce social hierarchies. Winners gain status and resources; losers lose position. Games teach compliance with rules and authority structures.' },
-    { topic: 'Playing the Game', q: 'What are different game types and their meanings?', a: 'Sports (physical competition), board games (strategy, chance), video games (escapism, skill development), gambling (risk, fate). Each reveals different aspects of competition and human nature.' },
-    { topic: 'We Are Australians', q: 'What does "We Are Australians" explore?', a: 'It examines Australian identity, multiculturalism, Indigenous perspectives, national myths, migration, and what it means to belong in contemporary Australia.' },
-    { topic: 'We Are Australians', q: 'How has Australian identity changed?', a: 'From white, British-based identity to multicultural, inclusive identity. Recognition of Indigenous peoples, Asian migration, and questioning of traditional myths of mateship and frontier.' },
-    { topic: 'Texts and Human Experiences', q: 'What are key communication features?', a: 'Verbal (words), nonverbal (tone, gesture, body language), visual (images, color, layout), written, and digital modes all convey meaning. Context affects interpretation.' },
-    { topic: 'Texts and Human Experiences', q: 'How do authors construct meaning for audiences?', a: 'Through language choices (word, imagery, metaphor), structure, genre conventions, perspective, tone, and intertextuality. Authors adapt messages for target audiences and contexts.' },
-    { topic: 'Texts and Human Experiences', q: 'What is Standard Australian English?', a: 'Formal English used in professional, academic, and official contexts. Different from vernacular/colloquial English. Prestige and power associations affect language use.' }
-  ,
-    {topic: "Texts and Human Experiences", q: "What is meant by 'individual' vs 'collective' human experiences in this module?", a: "Individual experiences are personal and particular to one person (e.g. a single character's grief); collective experiences are shared by a group or community (e.g. a nation's experience of war). Texts often show how the two intersect."},
-    {topic: "Texts and Human Experiences", q: "Give three human experience concepts commonly explored through texts.", a: "Any three of: belonging, identity, memory, resilience, discovery, empathy, guilt, loss, conflict, connection, alienation, growth."},
-    {topic: "Texts and Human Experiences", q: "How does 'anomaly' relate to human experience in texts?", a: "An anomaly is something that deviates from the expected or ordinary. Texts often use anomalous events or characters (a crisis, an outsider) to reveal deeper truths about human nature and experience."},
-    {topic: "Texts and Human Experiences", q: "What does 'paradox' mean in the context of human experience?", a: "A paradox is a seemingly contradictory situation that, on reflection, reveals a truth - e.g. a character finding freedom through loss, or growth through suffering."},
-    {topic: "Texts and Human Experiences", q: "Why do composers use a single narrative voice to represent experience?", a: "A single, often first-person, narrative voice creates intimacy and subjectivity, inviting the responder to empathise closely with one perspective on an experience, though it limits objectivity."},
-    {topic: "Texts and Human Experiences", q: "How can structure (e.g. non-linear timelines, fragmentation) represent human experience?", a: "Non-linear or fragmented structure can mirror the way memory, trauma or grief are experienced - not neatly, but in disordered, resurfacing pieces - making form reflect content."},
-    {topic: "Texts and Human Experiences", q: "What role does context play in how a human experience is represented?", a: "The composer's historical, social and cultural context shapes which experiences are represented and how - e.g. a wartime text may represent resilience differently to a contemporary one."},
-    {topic: "Texts and Human Experiences", q: "How might two different texts represent the same human experience differently?", a: "Through different textual form (poem vs film), perspective (insider vs outsider), tone (hopeful vs bleak), or context - shaping very different responder reactions to the same underlying experience, e.g. loss."},
-    {topic: "Texts and Human Experiences", q: "What is the difference between empathy and sympathy in responding to a text?", a: "Empathy is understanding and sharing another's feelings as if they were your own; sympathy is feeling concern or pity for someone from a distance, without fully sharing their perspective."},
-    {topic: "Texts and Human Experiences", q: "Why might a composer use an unreliable narrator to represent an experience?", a: "An unreliable narrator forces the responder to question the account given, highlighting how personal bias, memory or trauma can distort or complicate the representation of experience."},
-    {topic: "Texts and Human Experiences", q: "How does setting contribute to representing a human experience?", a: "Setting can symbolise or intensify an experience - e.g. an isolated landscape reinforcing a character's loneliness, or a crowded city reinforcing alienation despite being surrounded by others."},
-    {topic: "Texts and Human Experiences", q: "What is 'resilience' as a human experience concept, and how is it usually shown in texts?", a: "Resilience is the capacity to recover from adversity. Texts often show it through a character's journey from crisis to some form of adaptation, strength or renewed perspective."},
-    {topic: "We Are Australians", q: "What is the 'Great Australian Silence'?", a: "A term (coined by anthropologist W.E.H. Stanner) describing the historical omission of Aboriginal and Torres Strait Islander experiences and perspectives from mainstream Australian history and identity."},
-    {topic: "We Are Australians", q: "What is the Uluru Statement from the Heart calling for?", a: "A 2017 statement calling for a constitutionally enshrined First Nations Voice to Parliament, and a Makarrata Commission to oversee truth-telling and agreement-making (treaty) between governments and Aboriginal and Torres Strait Islander peoples."},
-    {topic: "We Are Australians", q: "What was the significance of the 1967 referendum?", a: "It allowed the Commonwealth to make laws for Aboriginal people and include them in the census, following overwhelming public support - a key milestone in Indigenous rights and recognition."},
-    {topic: "We Are Australians", q: "What does 'mateship' traditionally represent in Australian identity, and how is it now questioned?", a: "Traditionally, loyalty, egalitarianism and solidarity, often linked to wartime experience (e.g. Gallipoli) and rural/working-class life. It's increasingly questioned for excluding women, Indigenous people and migrants from the 'Australian' ideal it represents."},
-    {topic: "We Are Australians", q: "How did the White Australia Policy shape Australian identity, and when did it end?", a: "It restricted non-European immigration from 1901, reinforcing a narrow Anglo-Celtic national identity; it was progressively dismantled between 1949 and 1973, opening the way for a more multicultural identity."},
-    {topic: "We Are Australians", q: "What is multiculturalism as an official Australian policy?", a: "A government policy (from the 1970s) recognising and supporting cultural diversity, encouraging migrants to maintain their heritage while participating fully in Australian society, rather than requiring full assimilation."},
-    {topic: "We Are Australians", q: "What tension exists between multiculturalism and a shared national identity?", a: "Balancing the celebration of diverse cultural identities against the desire for social cohesion and a unifying 'Australian' identity - texts often explore whether these goals conflict or can coexist."},
-    {topic: "We Are Australians", q: "How might Anzac Day and its mythology be represented differently across texts?", a: "Some texts represent it reverently, as a founding moment of national character (sacrifice, mateship); others critique or complicate the mythology, questioning who is included in the story and whether it obscures other Australian experiences."},
-    {topic: "We Are Australians", q: "What does 'settler-colonial' mean in discussions of Australian identity?", a: "It describes a society founded through colonisation and ongoing settlement on land already inhabited by Indigenous peoples, which shapes ongoing debates about legitimacy, land rights and reconciliation."},
-    {topic: "We Are Australians", q: "How can migrant experience be represented as both belonging and alienation?", a: "Migrant narratives often show simultaneous connection to a new home (opportunity, community) and disconnection (language barriers, discrimination, homesickness for the country of origin) - texts hold both experiences at once."},
-    {topic: "Playing the Game", q: "How can sport function as a metaphor for broader life or social experience in texts?", a: "Sport often stands in for themes like ambition, sacrifice, fairness, failure and redemption, letting composers explore universal human experiences through a structured, high-stakes contest."},
-    {topic: "Playing the Game", q: "What is 'sportsmanship' and how do texts typically represent it?", a: "Fair, respectful conduct in competition (win or lose). Texts often contrast sportsmanship with a 'win-at-all-costs' mentality to explore ethics, integrity and what winning should really mean."},
-    {topic: "Playing the Game", q: "How does sports commentary language typically construct drama and tension?", a: "Through short, urgent sentences, present tense, emotive language, hyperbole and rising intonation/pace to heighten excitement and involve the audience directly in the unfolding contest."},
-    {topic: "Playing the Game", q: "How might texts use sport to explore issues of gender equity?", a: "By contrasting media coverage, pay and opportunities for men's and women's sport, or by representing characters who challenge gendered expectations about who can play or excel at a sport."},
-    {topic: "Playing the Game", q: "How can 'the game' be used as an extended metaphor beyond literal sport?", a: "'Playing the game' can describe navigating unwritten social, workplace or political rules and power structures - complying with expectations to succeed, even outside literal sporting contexts."},
-    {topic: "Playing the Game", q: "What ethical issues around performance-enhancing drugs might a text explore?", a: "Tension between the drive to win and fairness/integrity; the pressure athletes face to perform; and questions about what counts as 'natural' achievement versus cheating."},
-    {topic: "Playing the Game", q: "How do games (not just sport) reveal something about human nature, according to this module?", a: "Games reveal how people respond to rules, risk, chance and competition - showing traits like resilience after loss, cooperation in team games, or the human need for structured challenge and achievement."},
-    {topic: "Playing the Game", q: "How might a text use sport to critique or celebrate national identity?", a: "International sporting contests can be represented as uniting a nation in shared pride (e.g. Olympic success), or critiqued for how they exclude, exploit or overlook certain groups in the name of national glory."},
-    {topic: "Tell Us About It", q: "What are 'news values' and why do they matter?", a: "The criteria journalists and editors use to decide what's newsworthy - e.g. timeliness, proximity, prominence, conflict, human interest and impact. They shape which stories get told and how prominently."},
-    {topic: "Tell Us About It", q: "What is media bias, and how can it appear even in 'factual' reporting?", a: "A slant in how information is selected, framed or worded that favours a particular viewpoint - it can appear through word choice, which sources are quoted, what's omitted, image selection and story placement, even without outright false statements."},
-    {topic: "Tell Us About It", q: "What language techniques are commonly used in persuasive headlines?", a: "Emotive language, alliteration, rhetorical questions, puns, short punchy syntax and loaded/connotative word choices designed to grab attention and imply a viewpoint before the reader engages with the full story."},
-    {topic: "Tell Us About It", q: "What is 'citizen journalism'?", a: "News content produced and shared by members of the public (often via smartphones and social media) rather than professional journalists - it can offer immediacy and grassroots perspectives but raises concerns about verification and accuracy."},
-    {topic: "Tell Us About It", q: "What is meant by 'media concentration' or 'media ownership'?", a: "The trend of a small number of companies or individuals owning a large share of media outlets, which can narrow the diversity of perspectives presented to the public and concentrate influence over public opinion."},
-    {topic: "Tell Us About It", q: "How has digital and social media changed the way news is produced and consumed?", a: "News is now produced and shared instantly and globally, often bypassing traditional editorial gatekeeping; audiences can be both consumers and producers of content, but this also increases the speed at which misinformation can spread."},
-    {topic: "Tell Us About It", q: "What is 'fake news' and why is it a contested term?", a: "Deliberately fabricated or misleading information presented as legitimate news. The term is contested because it is also sometimes used, rightly or wrongly, to dismiss factual reporting a person simply disagrees with."},
-    {topic: "Tell Us About It", q: "What is an 'echo chamber' in a media context?", a: "An environment (often created by social media algorithms) where a person is mostly exposed to opinions and information that reinforce their existing beliefs, reducing exposure to alternative viewpoints."},
-    {topic: "Tell Us About It", q: "How do visual and layout features shape meaning in a news text?", a: "Image choice, cropping, captions, headline size and page/screen placement all signal the perceived importance and framing of a story, influencing audience interpretation before they read any text."},
-    {topic: "Tell Us About It", q: "What is the difference between a tabloid and broadsheet style of reporting?", a: "Tabloid style tends to be more sensationalist, using emotive language, bold headlines and human-interest angles; broadsheet style tends to be more formal, measured and detail-focused, aimed at in-depth analysis."},
-    {topic: "Tell Us About It", q: "Why is source verification important in evaluating media reliability?", a: "Checking who produced information, their expertise/motives, and whether claims are corroborated by other credible sources helps distinguish reliable reporting from misinformation or biased content."},
-    {topic: "Tell Us About It", q: "How might satire be used as a form of media commentary?", a: "Satire uses humour, irony and exaggeration to critique public figures, institutions or events, often revealing uncomfortable truths in a more accessible or provocative way than straight reporting."}
+  "label": "English Studies",
+  "color": "#B8863B",
+  "paper": "https://nesa.nsw.edu.au/HSC-support-materials/",
+  "cards": [
+    {
+      "topic": "Playing the Game",
+      "q": "What does \"Playing the Game\" explore?",
+      "a": "It explores competition, strategy, rules, winning, losing, teamwork, and how games reflect broader social values and power dynamics."
+    },
+    {
+      "topic": "Playing the Game",
+      "q": "How do games relate to social power?",
+      "a": "Games reflect and reinforce social hierarchies. Winners gain status and resources; losers lose position. Games teach compliance with rules and authority structures."
+    },
+    {
+      "topic": "Playing the Game",
+      "q": "What are different game types and their meanings?",
+      "a": "Sports (physical competition), board games (strategy, chance), video games (escapism, skill development), gambling (risk, fate). Each reveals different aspects of competition and human nature."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "What does \"We Are Australians\" explore?",
+      "a": "It examines Australian identity, multiculturalism, Indigenous perspectives, national myths, migration, and what it means to belong in contemporary Australia."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "How has Australian identity changed?",
+      "a": "From white, British-based identity to multicultural, inclusive identity. Recognition of Indigenous peoples, Asian migration, and questioning of traditional myths of mateship and frontier."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "What are key communication features?",
+      "a": "Verbal (words), nonverbal (tone, gesture, body language), visual (images, color, layout), written, and digital modes all convey meaning. Context affects interpretation."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "How do authors construct meaning for audiences?",
+      "a": "Through language choices (word, imagery, metaphor), structure, genre conventions, perspective, tone, and intertextuality. Authors adapt messages for target audiences and contexts."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "What is Standard Australian English?",
+      "a": "Formal English used in professional, academic, and official contexts. Different from vernacular/colloquial English. Prestige and power associations affect language use."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "What is meant by 'individual' vs 'collective' human experiences in this module?",
+      "a": "Individual experiences are personal and particular to one person (e.g. a single character's grief); collective experiences are shared by a group or community (e.g. a nation's experience of war). Texts often show how the two intersect."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "Give three human experience concepts commonly explored through texts.",
+      "a": "Any three of: belonging, identity, memory, resilience, discovery, empathy, guilt, loss, conflict, connection, alienation, growth."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "How does 'anomaly' relate to human experience in texts?",
+      "a": "An anomaly is something that deviates from the expected or ordinary. Texts often use anomalous events or characters (a crisis, an outsider) to reveal deeper truths about human nature and experience."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "What does 'paradox' mean in the context of human experience?",
+      "a": "A paradox is a seemingly contradictory situation that, on reflection, reveals a truth - e.g. a character finding freedom through loss, or growth through suffering."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "Why do composers use a single narrative voice to represent experience?",
+      "a": "A single, often first-person, narrative voice creates intimacy and subjectivity, inviting the responder to empathise closely with one perspective on an experience, though it limits objectivity."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "How can structure (e.g. non-linear timelines, fragmentation) represent human experience?",
+      "a": "Non-linear or fragmented structure can mirror the way memory, trauma or grief are experienced - not neatly, but in disordered, resurfacing pieces - making form reflect content."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "What role does context play in how a human experience is represented?",
+      "a": "The composer's historical, social and cultural context shapes which experiences are represented and how - e.g. a wartime text may represent resilience differently to a contemporary one."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "How might two different texts represent the same human experience differently?",
+      "a": "Through different textual form (poem vs film), perspective (insider vs outsider), tone (hopeful vs bleak), or context - shaping very different responder reactions to the same underlying experience, e.g. loss."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "What is the difference between empathy and sympathy in responding to a text?",
+      "a": "Empathy is understanding and sharing another's feelings as if they were your own; sympathy is feeling concern or pity for someone from a distance, without fully sharing their perspective."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "Why might a composer use an unreliable narrator to represent an experience?",
+      "a": "An unreliable narrator forces the responder to question the account given, highlighting how personal bias, memory or trauma can distort or complicate the representation of experience."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "How does setting contribute to representing a human experience?",
+      "a": "Setting can symbolise or intensify an experience - e.g. an isolated landscape reinforcing a character's loneliness, or a crowded city reinforcing alienation despite being surrounded by others."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "What is 'resilience' as a human experience concept, and how is it usually shown in texts?",
+      "a": "Resilience is the capacity to recover from adversity. Texts often show it through a character's journey from crisis to some form of adaptation, strength or renewed perspective."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "What is the 'Great Australian Silence'?",
+      "a": "A term (coined by anthropologist W.E.H. Stanner) describing the historical omission of Aboriginal and Torres Strait Islander experiences and perspectives from mainstream Australian history and identity."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "What is the Uluru Statement from the Heart calling for?",
+      "a": "A 2017 statement calling for a constitutionally enshrined First Nations Voice to Parliament, and a Makarrata Commission to oversee truth-telling and agreement-making (treaty) between governments and Aboriginal and Torres Strait Islander peoples."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "What was the significance of the 1967 referendum?",
+      "a": "It allowed the Commonwealth to make laws for Aboriginal people and include them in the census, following overwhelming public support - a key milestone in Indigenous rights and recognition."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "What does 'mateship' traditionally represent in Australian identity, and how is it now questioned?",
+      "a": "Traditionally, loyalty, egalitarianism and solidarity, often linked to wartime experience (e.g. Gallipoli) and rural/working-class life. It's increasingly questioned for excluding women, Indigenous people and migrants from the 'Australian' ideal it represents."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "How did the White Australia Policy shape Australian identity, and when did it end?",
+      "a": "It restricted non-European immigration from 1901, reinforcing a narrow Anglo-Celtic national identity; it was progressively dismantled between 1949 and 1973, opening the way for a more multicultural identity."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "What is multiculturalism as an official Australian policy?",
+      "a": "A government policy (from the 1970s) recognising and supporting cultural diversity, encouraging migrants to maintain their heritage while participating fully in Australian society, rather than requiring full assimilation."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "What tension exists between multiculturalism and a shared national identity?",
+      "a": "Balancing the celebration of diverse cultural identities against the desire for social cohesion and a unifying 'Australian' identity - texts often explore whether these goals conflict or can coexist."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "How might Anzac Day and its mythology be represented differently across texts?",
+      "a": "Some texts represent it reverently, as a founding moment of national character (sacrifice, mateship); others critique or complicate the mythology, questioning who is included in the story and whether it obscures other Australian experiences."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "What does 'settler-colonial' mean in discussions of Australian identity?",
+      "a": "It describes a society founded through colonisation and ongoing settlement on land already inhabited by Indigenous peoples, which shapes ongoing debates about legitimacy, land rights and reconciliation."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "How can migrant experience be represented as both belonging and alienation?",
+      "a": "Migrant narratives often show simultaneous connection to a new home (opportunity, community) and disconnection (language barriers, discrimination, homesickness for the country of origin) - texts hold both experiences at once."
+    },
+    {
+      "topic": "Playing the Game",
+      "q": "How can sport function as a metaphor for broader life or social experience in texts?",
+      "a": "Sport often stands in for themes like ambition, sacrifice, fairness, failure and redemption, letting composers explore universal human experiences through a structured, high-stakes contest."
+    },
+    {
+      "topic": "Playing the Game",
+      "q": "What is 'sportsmanship' and how do texts typically represent it?",
+      "a": "Fair, respectful conduct in competition (win or lose). Texts often contrast sportsmanship with a 'win-at-all-costs' mentality to explore ethics, integrity and what winning should really mean."
+    },
+    {
+      "topic": "Playing the Game",
+      "q": "How does sports commentary language typically construct drama and tension?",
+      "a": "Through short, urgent sentences, present tense, emotive language, hyperbole and rising intonation/pace to heighten excitement and involve the audience directly in the unfolding contest."
+    },
+    {
+      "topic": "Playing the Game",
+      "q": "How might texts use sport to explore issues of gender equity?",
+      "a": "By contrasting media coverage, pay and opportunities for men's and women's sport, or by representing characters who challenge gendered expectations about who can play or excel at a sport."
+    },
+    {
+      "topic": "Playing the Game",
+      "q": "How can 'the game' be used as an extended metaphor beyond literal sport?",
+      "a": "'Playing the game' can describe navigating unwritten social, workplace or political rules and power structures - complying with expectations to succeed, even outside literal sporting contexts."
+    },
+    {
+      "topic": "Playing the Game",
+      "q": "What ethical issues around performance-enhancing drugs might a text explore?",
+      "a": "Tension between the drive to win and fairness/integrity; the pressure athletes face to perform; and questions about what counts as 'natural' achievement versus cheating."
+    },
+    {
+      "topic": "Playing the Game",
+      "q": "How do games (not just sport) reveal something about human nature, according to this module?",
+      "a": "Games reveal how people respond to rules, risk, chance and competition - showing traits like resilience after loss, cooperation in team games, or the human need for structured challenge and achievement."
+    },
+    {
+      "topic": "Playing the Game",
+      "q": "How might a text use sport to critique or celebrate national identity?",
+      "a": "International sporting contests can be represented as uniting a nation in shared pride (e.g. Olympic success), or critiqued for how they exclude, exploit or overlook certain groups in the name of national glory."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "Who is the protagonist of \"Looking for Alibrandi\" and what is her background?",
+      "a": "Josephine (Josie) Alibrandi, a third-generation Italian-Australian teenager in her final year of school in Sydney, navigating her dual Italian and Australian identity."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "What central family secret does Josie uncover in \"Looking for Alibrandi\"?",
+      "a": "That her grandmother, Nonna Katia, had an affair and that Josie's mother, Christina, was conceived outside Katia's marriage - revealing hidden shame across three generations of women."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "How does \"Looking for Alibrandi\" represent tension between migrant and mainstream Australian identity?",
+      "a": "Josie is caught between her Italian heritage (family expectations, community judgement) and her aspiration to fit into \"Australian\" (Anglo, upper-class) society at her private school, often feeling she belongs fully to neither."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "How is social class explored in \"Looking for Alibrandi\"?",
+      "a": "Through the contrast between Josie's Italian, working/middle-class background and the wealthy Anglo-Australian students at her private school, and through her relationship with Jacob Coote, a boy from a public school and different social background."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "Who is Michael Andretti and what role does he play in the novel?",
+      "a": "Josie's biological father, a barrister who left before she was born and re-enters her life during the novel, allowing the text to explore themes of identity, belonging and reconciliation with the past."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "What subplot in \"Looking for Alibrandi\" deals with mental health?",
+      "a": "Josie's friend John Barton, a high-achieving student under intense academic and family pressure, dies by suicide - exploring the hidden cost of expectation and perfectionism."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "What does the term \"wog\" represent in the novel, and how does Josie relate to it?",
+      "a": "A term (reclaimed within the novel) used to identify Italian and other non-Anglo migrants; Josie's relationship with the label shifts as she moves from resenting it to more confidently owning her cultural identity by the novel's end."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "How does \"Looking for Alibrandi\" ultimately resolve Josie's search for identity?",
+      "a": "By the end, Josie reaches a greater self-acceptance, embracing both her Italian heritage and her Australian upbringing as compatible parts of who she is, rather than a conflict she must resolve by choosing one."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "What is \"Go Back to Where You Came From\"?",
+      "a": "An SBS reality/documentary series (first aired 2011) in which a group of everyday Australians with differing views on asylum seekers undertake, largely in reverse, the journey many refugees take to reach Australia."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "What is the stated purpose of \"Go Back to Where You Came From\"?",
+      "a": "To challenge participants' (and viewers') preconceptions about asylum seekers and refugees by giving them direct, confronting exposure to refugee camps, conflict zones and the dangerous journey many undertake."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "How does \"Go Back to Where You Came From\" use participant selection to create dramatic and persuasive effect?",
+      "a": "By including participants with strongly opposing initial views (some hostile toward asylum seekers, some sympathetic), the series can show attitudes being challenged or shifting over the course of the experience, making the emotional and persuasive arc more powerful."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "What documentary techniques does \"Go Back to Where You Came From\" use to build empathy?",
+      "a": "Direct-to-camera confessional interviews revealing participants' evolving reactions, juxtaposition of participants' safe Australian lives against refugee conditions, and on-screen facts/statistics used to counter common media myths about asylum seekers."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "How does \"Go Back to Where You Came From\" connect to the \"We Are Australians\" module's ideas about national identity?",
+      "a": "It directly interrogates who is included in or excluded from Australian identity and belonging, and critiques media and political \"us vs them\" narratives around asylum seekers and immigration."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "What real-world political context does \"Go Back to Where You Came From\" respond to?",
+      "a": "It was produced during a period of intense Australian political debate over asylum seeker policy, including mandatory detention and border protection rhetoric, directly engaging with contemporary public discourse."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "How might \"Looking for Alibrandi\" and \"Go Back to Where You Came From\" be compared in a \"We Are Australians\" essay?",
+      "a": "Both explore who gets to belong in Australia and on what terms - Alibrandi through one individual's generational migrant experience and internal identity struggle, and Go Back to Where You Came From through a confronting, external, documentary examination of asylum seekers and Australian attitudes toward them."
+    }
   ],
-  practice: [
-    { topic: 'Playing the Game', type: 'Extended response', marks: 8, q: 'Analyze how games function as models of social competition and power relations. Use specific examples to support your response.', criteria: '7-8 marks: Sophisticated analysis with excellent examples\n5-6 marks: Good analysis with relevant examples\n3-4 marks: Adequate analysis with some examples\n1-2 marks: Limited understanding' },
-    { topic: 'We Are Australians', type: 'Short answer', marks: 6, q: 'Explain how Australian identity has evolved to become more multicultural. What challenges and benefits does this present?', criteria: '6 marks: Clear explanation of evolution with balanced discussion\n4-5 marks: Good explanation with some discussion\n2-3 marks: Basic explanation with limited discussion\n1 mark: Superficial response' },
-    { topic: 'Texts and Human Experiences', type: 'Extended response', marks: 6, q: 'Choose a recent news story or advertisement. Analyze how verbal, nonverbal, and visual communication techniques work together to create meaning and persuade the audience.', criteria: '6 marks: Thorough analysis of multiple communication modes\n4-5 marks: Good analysis of communication techniques\n2-3 marks: Basic analysis with limited techniques\n1 mark: Limited response' },
-    { topic: 'Texts and Human Experiences', type: 'Short answer', marks: 4, q: 'Explain how language devices such as metaphor and imagery help authors construct meaning for specific audiences.', criteria: '4 marks: Clear explanation with relevant examples\n3 marks: Good explanation with examples\n2 marks: Adequate explanation\n1 mark: Limited understanding' }
-  ,
-    {topic: "Texts and Human Experiences", type: "Extended response", marks: 8, q: "Analyse how a text you have studied represents an individual human experience as connected to a wider, collective experience.", criteria: "7-8 marks: Sophisticated analysis linking individual and collective experience with precise textual evidence\n5-6 marks: Good analysis with relevant evidence\n3-4 marks: Adequate analysis with some evidence\n1-2 marks: Limited understanding"},
-    {topic: "Tell Us About It", type: "Short answer", marks: 4, q: "Explain how ONE language or visual technique can shape audience perception of a news event, using a specific example.", criteria: "4 marks: Clear explanation with a specific, well-analysed example\n3 marks: Good explanation with an example\n2 marks: Adequate explanation\n1 mark: Limited understanding"},
-    {topic: "Tell Us About It", type: "Extended response", marks: 6, q: "To what extent has social media changed the reliability of news for its audiences? Support your response with examples.", criteria: "6 marks: Well-developed, balanced argument with strong examples\n4-5 marks: Good argument with relevant examples\n2-3 marks: Basic argument with limited examples\n1 mark: Superficial response"},
-    {topic: "We Are Australians", type: "Short answer", marks: 4, q: "Explain how a text you have studied represents the tension between Australian multiculturalism and a unified national identity.", criteria: "4 marks: Clear explanation with relevant textual evidence\n3 marks: Good explanation with some evidence\n2 marks: Adequate explanation\n1 mark: Limited understanding"},
-    {topic: "Playing the Game", type: "Short answer", marks: 4, q: "Explain how sports commentary language is used to construct drama and audience engagement.", criteria: "4 marks: Clear explanation with specific language features identified\n3 marks: Good explanation with some features\n2 marks: Adequate explanation\n1 mark: Limited understanding"}
+  "practice": [
+    {
+      "topic": "Playing the Game",
+      "type": "Extended response",
+      "marks": 8,
+      "q": "Analyze how games function as models of social competition and power relations. Use specific examples to support your response.",
+      "criteria": "7-8 marks: Sophisticated analysis with excellent examples\n5-6 marks: Good analysis with relevant examples\n3-4 marks: Adequate analysis with some examples\n1-2 marks: Limited understanding"
+    },
+    {
+      "topic": "We Are Australians",
+      "type": "Short answer",
+      "marks": 6,
+      "q": "Explain how Australian identity has evolved to become more multicultural. What challenges and benefits does this present?",
+      "criteria": "6 marks: Clear explanation of evolution with balanced discussion\n4-5 marks: Good explanation with some discussion\n2-3 marks: Basic explanation with limited discussion\n1 mark: Superficial response"
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "type": "Extended response",
+      "marks": 6,
+      "q": "Choose a recent news story or advertisement. Analyze how verbal, nonverbal, and visual communication techniques work together to create meaning and persuade the audience.",
+      "criteria": "6 marks: Thorough analysis of multiple communication modes\n4-5 marks: Good analysis of communication techniques\n2-3 marks: Basic analysis with limited techniques\n1 mark: Limited response"
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "type": "Short answer",
+      "marks": 4,
+      "q": "Explain how language devices such as metaphor and imagery help authors construct meaning for specific audiences.",
+      "criteria": "4 marks: Clear explanation with relevant examples\n3 marks: Good explanation with examples\n2 marks: Adequate explanation\n1 mark: Limited understanding"
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "type": "Extended response",
+      "marks": 8,
+      "q": "Analyse how a text you have studied represents an individual human experience as connected to a wider, collective experience.",
+      "criteria": "7-8 marks: Sophisticated analysis linking individual and collective experience with precise textual evidence\n5-6 marks: Good analysis with relevant evidence\n3-4 marks: Adequate analysis with some evidence\n1-2 marks: Limited understanding"
+    },
+    {
+      "topic": "We Are Australians",
+      "type": "Short answer",
+      "marks": 4,
+      "q": "Explain how a text you have studied represents the tension between Australian multiculturalism and a unified national identity.",
+      "criteria": "4 marks: Clear explanation with relevant textual evidence\n3 marks: Good explanation with some evidence\n2 marks: Adequate explanation\n1 mark: Limited understanding"
+    },
+    {
+      "topic": "Playing the Game",
+      "type": "Short answer",
+      "marks": 4,
+      "q": "Explain how sports commentary language is used to construct drama and audience engagement.",
+      "criteria": "4 marks: Clear explanation with specific language features identified\n3 marks: Good explanation with some features\n2 marks: Adequate explanation\n1 mark: Limited understanding"
+    },
+    {
+      "topic": "We Are Australians",
+      "type": "Extended response",
+      "marks": 8,
+      "q": "Analyse how EITHER \"Looking for Alibrandi\" OR \"Go Back to Where You Came From\" represents the tension between belonging and exclusion in Australian identity.",
+      "criteria": "7-8 marks: Sophisticated analysis with precise textual evidence\n5-6 marks: Good analysis with relevant evidence\n3-4 marks: Adequate analysis with some evidence\n1-2 marks: Limited understanding"
+    },
+    {
+      "topic": "We Are Australians",
+      "type": "Short answer",
+      "marks": 4,
+      "q": "Explain how ONE technique used in \"Go Back to Where You Came From\" is designed to build audience empathy for asylum seekers.",
+      "criteria": "4 marks: Clear explanation with a specific technique and its effect\n3 marks: Good explanation with a technique identified\n2 marks: Adequate explanation\n1 mark: Limited understanding"
+    }
   ],
-  essay: [
-    { topic: 'We Are Australians', part: 'Introduction', marks: 5, q: 'Write an introduction for an essay exploring how contemporary Australian literature challenges or reinforces traditional ideas about Australian identity and multiculturalism.', criteria: '5 marks: Excellent context and clear thesis\n3-4 marks: Good introduction with thesis\n2 marks: Adequate introduction\n1 mark: Basic introduction' },
-    { topic: 'Playing the Game', part: 'Body Paragraph', marks: 4, q: 'Write a body paragraph examining how competition in games serves as a metaphor for broader social competition and the reinforcement of hierarchies.', criteria: '4 marks: Well-developed paragraph with strong analysis\n3 marks: Good paragraph with adequate analysis\n2 marks: Basic paragraph\n1 mark: Limited response' }
+  "essay": [
+    {
+      "topic": "We Are Australians",
+      "part": "Introduction",
+      "marks": 5,
+      "q": "Write an introduction for an essay exploring how contemporary Australian literature challenges or reinforces traditional ideas about Australian identity and multiculturalism.",
+      "criteria": "5 marks: Excellent context and clear thesis\n3-4 marks: Good introduction with thesis\n2 marks: Adequate introduction\n1 mark: Basic introduction"
+    },
+    {
+      "topic": "Playing the Game",
+      "part": "Body Paragraph",
+      "marks": 4,
+      "q": "Write a body paragraph examining how competition in games serves as a metaphor for broader social competition and the reinforcement of hierarchies.",
+      "criteria": "4 marks: Well-developed paragraph with strong analysis\n3 marks: Good paragraph with adequate analysis\n2 marks: Basic paragraph\n1 mark: Limited response"
+    }
   ],
-  mcq: [
-    { topic: 'Playing the Game', q: 'What social value does competition in games reinforce?', options: ['Cooperation only', 'Hierarchy and status differentiation', 'Equality and fairness only', 'Avoiding conflict'], correctIndex: 1, explain: 'Games create winners and losers, reinforcing social hierarchies and status differentiation.' },
-    { topic: 'We Are Australians', q: 'How has Australian national identity changed in recent decades?', options: ['Remained unchanged since colonial times', 'Shifted from monocultural to multicultural recognition', 'Become exclusively Indigenous', 'Rejected all cultural values'], correctIndex: 1, explain: 'Australian identity has evolved to include Indigenous recognition and multicultural representation, moving away from Anglo-Celtic dominance.' },
-    { topic: 'Texts and Human Experiences', q: 'Which factor MOST affects how communication is interpreted?', options: ['The time of day', 'Context and audience background', 'The weather', 'The sender\'s age alone'], correctIndex: 1, explain: 'Context - including cultural background, purpose, and setting - significantly affects how audiences interpret communication.' },
-    { topic: 'Texts and Human Experiences', q: 'Why do authors use figurative language like metaphor?', options: ['To make writing longer', 'To create meaning and emotional impact for readers', 'To make writing confusing', 'Because it\'s required'], correctIndex: 1, explain: 'Figurative language creates vivid imagery, emotional connections, and deeper meaning for audiences.' },
-    { topic: 'Texts and Human Experiences', q: 'In what context is Standard Australian English most appropriately used?', options: ['Only in literature', 'Only in casual conversation', 'In academic, professional, and formal contexts', 'Never - it\'s not useful'], correctIndex: 2, explain: 'Standard English is appropriate for formal and professional contexts where precision and prestige matter.' },
-    { topic: 'We Are Australians', q: 'What does recognition of Indigenous perspectives contribute to Australian identity?', options: ['Reduces cultural diversity', 'Acknowledges pre-colonial history and ongoing cultural significance', 'Eliminates multicultural influences', 'Changes nothing'], correctIndex: 1, explain: 'Recognizing Indigenous perspectives acknowledges that Australian identity must include the first peoples\' histories and cultures.' }
-  ,
-    {topic: "Texts and Human Experiences", q: "What best describes a 'collective' human experience?", options: ["A single character's private thoughts", "An experience shared across a group or community", "A completely unique, unrepeatable event", "An experience with no context"], correctIndex: 1, explain: "Collective experiences are shared by a group, in contrast to individual experiences which belong to one person."},
-    {topic: "Tell Us About It", q: "Which of these is a genuine 'news value' used to judge newsworthiness?", options: ["Alphabetical order of names", "Timeliness and proximity", "Length of the press release", "The journalist's personal mood"], correctIndex: 1, explain: "Timeliness (how recent) and proximity (how close/relevant to the audience) are classic news values used to decide what gets covered."},
-    {topic: "Tell Us About It", q: "What is an 'echo chamber'?", options: ["A soundproof newsroom", "An environment reinforcing existing beliefs via limited viewpoints", "A type of print layout", "A fact-checking organisation"], correctIndex: 1, explain: "An echo chamber describes being mostly exposed to views that confirm what you already believe, often due to algorithmic curation."},
-    {topic: "We Are Australians", q: "What did the 1967 referendum achieve?", options: ["Full land rights for Indigenous Australians", "Allowed the Commonwealth to legislate for and count Aboriginal people", "Ended the White Australia Policy immediately", "Established multiculturalism as official policy"], correctIndex: 1, explain: "The 1967 referendum enabled the Commonwealth to make laws for Aboriginal people and include them in the census - it did not itself grant land rights or end the White Australia Policy."},
-    {topic: "Playing the Game", q: "What does 'sportsmanship' refer to?", options: ["Winning by any means necessary", "Fair and respectful conduct in competition", "Avoiding competition altogether", "Only playing individual, not team, sports"], correctIndex: 1, explain: "Sportsmanship describes fair, respectful conduct, often contrasted with a win-at-all-costs mentality."}
+  "mcq": [
+    {
+      "topic": "Playing the Game",
+      "q": "What social value does competition in games reinforce?",
+      "options": [
+        "Cooperation only",
+        "Hierarchy and status differentiation",
+        "Equality and fairness only",
+        "Avoiding conflict"
+      ],
+      "correctIndex": 1,
+      "explain": "Games create winners and losers, reinforcing social hierarchies and status differentiation."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "How has Australian national identity changed in recent decades?",
+      "options": [
+        "Remained unchanged since colonial times",
+        "Shifted from monocultural to multicultural recognition",
+        "Become exclusively Indigenous",
+        "Rejected all cultural values"
+      ],
+      "correctIndex": 1,
+      "explain": "Australian identity has evolved to include Indigenous recognition and multicultural representation, moving away from Anglo-Celtic dominance."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "Which factor MOST affects how communication is interpreted?",
+      "options": [
+        "The time of day",
+        "Context and audience background",
+        "The weather",
+        "The sender's age alone"
+      ],
+      "correctIndex": 1,
+      "explain": "Context - including cultural background, purpose, and setting - significantly affects how audiences interpret communication."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "Why do authors use figurative language like metaphor?",
+      "options": [
+        "To make writing longer",
+        "To create meaning and emotional impact for readers",
+        "To make writing confusing",
+        "Because it's required"
+      ],
+      "correctIndex": 1,
+      "explain": "Figurative language creates vivid imagery, emotional connections, and deeper meaning for audiences."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "In what context is Standard Australian English most appropriately used?",
+      "options": [
+        "Only in literature",
+        "Only in casual conversation",
+        "In academic, professional, and formal contexts",
+        "Never - it's not useful"
+      ],
+      "correctIndex": 2,
+      "explain": "Standard English is appropriate for formal and professional contexts where precision and prestige matter."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "What does recognition of Indigenous perspectives contribute to Australian identity?",
+      "options": [
+        "Reduces cultural diversity",
+        "Acknowledges pre-colonial history and ongoing cultural significance",
+        "Eliminates multicultural influences",
+        "Changes nothing"
+      ],
+      "correctIndex": 1,
+      "explain": "Recognizing Indigenous perspectives acknowledges that Australian identity must include the first peoples' histories and cultures."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "What best describes a 'collective' human experience?",
+      "options": [
+        "A single character's private thoughts",
+        "An experience shared across a group or community",
+        "A completely unique, unrepeatable event",
+        "An experience with no context"
+      ],
+      "correctIndex": 1,
+      "explain": "Collective experiences are shared by a group, in contrast to individual experiences which belong to one person."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "What did the 1967 referendum achieve?",
+      "options": [
+        "Full land rights for Indigenous Australians",
+        "Allowed the Commonwealth to legislate for and count Aboriginal people",
+        "Ended the White Australia Policy immediately",
+        "Established multiculturalism as official policy"
+      ],
+      "correctIndex": 1,
+      "explain": "The 1967 referendum enabled the Commonwealth to make laws for Aboriginal people and include them in the census - it did not itself grant land rights or end the White Australia Policy."
+    },
+    {
+      "topic": "Playing the Game",
+      "q": "What does 'sportsmanship' refer to?",
+      "options": [
+        "Winning by any means necessary",
+        "Fair and respectful conduct in competition",
+        "Avoiding competition altogether",
+        "Only playing individual, not team, sports"
+      ],
+      "correctIndex": 1,
+      "explain": "Sportsmanship describes fair, respectful conduct, often contrasted with a win-at-all-costs mentality."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "What generational secret does Josie uncover about Nonna Katia in \"Looking for Alibrandi\"?",
+      "options": [
+        "Katia was not Italian",
+        "Katia had an affair, and Josie's mother was conceived outside her marriage",
+        "Katia disowned Christina",
+        "Katia invented the family surname"
+      ],
+      "correctIndex": 1,
+      "explain": "The revelation of Katia's affair and Christina's conception outside marriage exposes generational shame that shapes the women's identities."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "What is the format of \"Go Back to Where You Came From\"?",
+      "options": [
+        "A scripted drama",
+        "A reality/documentary series following Australians retracing a refugee-like journey",
+        "A sitcom",
+        "A news bulletin"
+      ],
+      "correctIndex": 1,
+      "explain": "It is a reality/documentary hybrid that places real Australian participants into refugee-like conditions to challenge their views."
+    }
   ],
-  notes: [
-    { topic: 'Playing the Game', points: [
-      { point: 'Games as Social Mirrors', info: 'Games reflect social values and hierarchies. They teach rule-following, competition, teamwork, and acceptance of authority. Different cultures and eras value different games.' },
-      { point: 'Competition and Hierarchy', info: 'Games create winners/losers, establishing status hierarchy. Winners gain prestige, resources, and validation. This mirrors social stratification and competitive capitalism.' },
-      { point: 'Rules and Power', info: 'Game rules define boundaries and enforce authority. Rule-makers have power; those who break rules are sanctioned. Reflects how social institutions maintain control.' },
-      { point: 'Game Types and Meaning', info: 'Sports teach discipline and physicality; board games teach strategy and chance acceptance; video games offer escapism; gambling reveals human nature regarding risk and hope.' }
-    ]},
-    { topic: 'We Are Australians', points: [
-      { point: 'Historical Australian Identity', info: 'Constructed around British/Anglo-Saxon values: mateship, larrikinism, frontier mythology, egalitarianism. Excluded women, Indigenous peoples, and non-European immigrants.' },
-      { point: 'Multicultural Shift', info: 'Post-1970s: government policy promoting multiculturalism; Asian migration; recognition of Indigenous cultures. Identity becomes inclusive, diverse, and complex - less monolithic.' },
-      { point: 'Indigenous Recognition', info: 'Mabo, Reconciliation, Uluru Statement: growing acknowledgment that Indigenous cultures predate European settlement. Ongoing debates about land, justice, and shared history.' },
-      { point: 'Contemporary Identity Questions', info: 'What does it mean to be Australian? Tension between multiculturalism and social cohesion; between Indigenous rights and settler presence; between global and local identity.' }
-    ]},
-    { topic: 'Texts and Human Experiences', points: [
-      { point: 'Multiple Communication Modes', info: 'Verbal (words, tone), nonverbal (gesture, expression, posture), visual (color, layout, images), written, digital. All modes work together to create meaning.' },
-      { point: 'Context and Interpretation', info: 'Same message interpreted differently by different audiences depending on cultural background, prior knowledge, biases, and context. Sender cannot fully control meaning.' },
-      { point: 'Language Variation', info: 'Code-switching: changing language/style for different contexts (formal vs casual, professional vs intimate). Reflects social positioning and respect for audience.' },
-      { point: 'Power and Prestige', info: 'Some language varieties (Standard English, "educated" accents) carry prestige and power. Others (regional, working-class) are marked as lower-status. Reflects social inequality.' }
-    ]},
-    { topic: 'Texts and Human Experiences', points: [
-      { point: 'Audience Analysis', info: 'Authors consider audience demographics, values, knowledge, and expectations. Adapt vocabulary, tone, examples, and argument to resonate with specific audiences.' },
-      { point: 'Genre and Convention', info: 'Genres (news, fiction, advertising, academic) have established conventions. Audiences expect certain formats. Authors follow or subvert conventions for effect.' },
-      { point: 'Perspective and Voice', info: 'First-person (intimate, subjective), second-person (direct address), third-person (objective, distant). Point of view affects what audience learns and how they relate to text.' },
-      { point: 'Language Devices', info: 'Metaphor (comparison), simile (comparison with "like/as"), imagery (sensory detail), symbolism, allusion create layers of meaning and emotional impact for readers.' }
-    ]},
-    { topic: 'Texts and Human Experiences', points: [
-      { point: 'Definition and Use', info: 'Standard English is formal, grammatically "correct" English used in academic, legal, and professional contexts. Distinct from vernacular English (everyday speech) and regional dialects.' },
-      { point: 'Prestige and Power', info: 'Standard English carries prestige and authority; nonstandard varieties often stigmatized. Speaker\'s language affects perceptions of intelligence, education, and trustworthiness.' },
-      { point: 'Code-Switching', info: 'Multilingual/bidialectal people switch between Standard and other varieties. Reflects awareness of social expectations and desire for acceptance/advancement.' },
-      { point: 'Inclusivity Issues', info: 'Requirement for Standard English can exclude those with different backgrounds. Balance between maintaining standards and recognizing language diversity is ongoing debate.' }
-    ]}
-  ,
-    {topic: "Tell Us About It", points: [{point: "News Values", info: "Criteria (timeliness, proximity, prominence, conflict, human interest) journalists use to decide what is newsworthy and how prominently to feature it."}, {point: "Bias and Framing", info: "Bias can appear through word choice, source selection, omission and story placement - shaping audience perception even without stating anything technically false."}, {point: "Digital Media Change", info: "Social media has sped up news production/consumption and blurred the line between audience and producer (citizen journalism), while increasing risks of misinformation and echo chambers."}, {point: "Evaluating Reliability", info: "Check the source's credibility and motives, whether claims are corroborated elsewhere, and whether emotive language or one-sided framing suggests bias."}]},
-    {topic: "Texts and Human Experiences", points: [{point: "Individual vs Collective", info: "Individual experience belongs to one person; collective experience is shared by a group. Texts often show how a personal story reflects or intersects with a wider communal one."}, {point: "Anomaly and Paradox", info: "Anomalies (deviations from the expected) and paradoxes (apparent contradictions that reveal truth) are often used by composers to expose deeper insights about human nature."}, {point: "Form Reflecting Content", info: "Structural choices (fragmentation, non-linear timelines, unreliable narration) can mirror the disordered or subjective nature of experiences like memory, trauma or grief."}, {point: "Context Shapes Representation", info: "A composer's historical, cultural and social context influences which human experiences are represented, and how - the same experience (e.g. loss) can be shown very differently across contexts."}]}
+  "notes": [
+    {
+      "topic": "Playing the Game",
+      "points": [
+        {
+          "point": "Games as Social Mirrors",
+          "info": "Games reflect social values and hierarchies. They teach rule-following, competition, teamwork, and acceptance of authority. Different cultures and eras value different games."
+        },
+        {
+          "point": "Competition and Hierarchy",
+          "info": "Games create winners/losers, establishing status hierarchy. Winners gain prestige, resources, and validation. This mirrors social stratification and competitive capitalism."
+        },
+        {
+          "point": "Rules and Power",
+          "info": "Game rules define boundaries and enforce authority. Rule-makers have power; those who break rules are sanctioned. Reflects how social institutions maintain control."
+        },
+        {
+          "point": "Game Types and Meaning",
+          "info": "Sports teach discipline and physicality; board games teach strategy and chance acceptance; video games offer escapism; gambling reveals human nature regarding risk and hope."
+        }
+      ]
+    },
+    {
+      "topic": "We Are Australians",
+      "points": [
+        {
+          "point": "Historical Australian Identity",
+          "info": "Constructed around British/Anglo-Saxon values: mateship, larrikinism, frontier mythology, egalitarianism. Excluded women, Indigenous peoples, and non-European immigrants."
+        },
+        {
+          "point": "Multicultural Shift",
+          "info": "Post-1970s: government policy promoting multiculturalism; Asian migration; recognition of Indigenous cultures. Identity becomes inclusive, diverse, and complex - less monolithic."
+        },
+        {
+          "point": "Indigenous Recognition",
+          "info": "Mabo, Reconciliation, Uluru Statement: growing acknowledgment that Indigenous cultures predate European settlement. Ongoing debates about land, justice, and shared history."
+        },
+        {
+          "point": "Contemporary Identity Questions",
+          "info": "What does it mean to be Australian? Tension between multiculturalism and social cohesion; between Indigenous rights and settler presence; between global and local identity."
+        }
+      ]
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "points": [
+        {
+          "point": "Multiple Communication Modes",
+          "info": "Verbal (words, tone), nonverbal (gesture, expression, posture), visual (color, layout, images), written, digital. All modes work together to create meaning."
+        },
+        {
+          "point": "Context and Interpretation",
+          "info": "Same message interpreted differently by different audiences depending on cultural background, prior knowledge, biases, and context. Sender cannot fully control meaning."
+        },
+        {
+          "point": "Language Variation",
+          "info": "Code-switching: changing language/style for different contexts (formal vs casual, professional vs intimate). Reflects social positioning and respect for audience."
+        },
+        {
+          "point": "Power and Prestige",
+          "info": "Some language varieties (Standard English, \"educated\" accents) carry prestige and power. Others (regional, working-class) are marked as lower-status. Reflects social inequality."
+        }
+      ]
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "points": [
+        {
+          "point": "Audience Analysis",
+          "info": "Authors consider audience demographics, values, knowledge, and expectations. Adapt vocabulary, tone, examples, and argument to resonate with specific audiences."
+        },
+        {
+          "point": "Genre and Convention",
+          "info": "Genres (news, fiction, advertising, academic) have established conventions. Audiences expect certain formats. Authors follow or subvert conventions for effect."
+        },
+        {
+          "point": "Perspective and Voice",
+          "info": "First-person (intimate, subjective), second-person (direct address), third-person (objective, distant). Point of view affects what audience learns and how they relate to text."
+        },
+        {
+          "point": "Language Devices",
+          "info": "Metaphor (comparison), simile (comparison with \"like/as\"), imagery (sensory detail), symbolism, allusion create layers of meaning and emotional impact for readers."
+        }
+      ]
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "points": [
+        {
+          "point": "Definition and Use",
+          "info": "Standard English is formal, grammatically \"correct\" English used in academic, legal, and professional contexts. Distinct from vernacular English (everyday speech) and regional dialects."
+        },
+        {
+          "point": "Prestige and Power",
+          "info": "Standard English carries prestige and authority; nonstandard varieties often stigmatized. Speaker's language affects perceptions of intelligence, education, and trustworthiness."
+        },
+        {
+          "point": "Code-Switching",
+          "info": "Multilingual/bidialectal people switch between Standard and other varieties. Reflects awareness of social expectations and desire for acceptance/advancement."
+        },
+        {
+          "point": "Inclusivity Issues",
+          "info": "Requirement for Standard English can exclude those with different backgrounds. Balance between maintaining standards and recognizing language diversity is ongoing debate."
+        }
+      ]
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "points": [
+        {
+          "point": "Individual vs Collective",
+          "info": "Individual experience belongs to one person; collective experience is shared by a group. Texts often show how a personal story reflects or intersects with a wider communal one."
+        },
+        {
+          "point": "Anomaly and Paradox",
+          "info": "Anomalies (deviations from the expected) and paradoxes (apparent contradictions that reveal truth) are often used by composers to expose deeper insights about human nature."
+        },
+        {
+          "point": "Form Reflecting Content",
+          "info": "Structural choices (fragmentation, non-linear timelines, unreliable narration) can mirror the disordered or subjective nature of experiences like memory, trauma or grief."
+        },
+        {
+          "point": "Context Shapes Representation",
+          "info": "A composer's historical, cultural and social context influences which human experiences are represented, and how - the same experience (e.g. loss) can be shown very differently across contexts."
+        }
+      ]
+    },
+    {
+      "topic": "We Are Australians",
+      "points": [
+        {
+          "point": "Looking for Alibrandi - Identity",
+          "info": "Josie navigates dual Italian/Australian identity, social class contrast (private school vs Jacob Coote's background), illegitimacy stigma, and generational secrets (Nonna Katia's affair) - resolving toward self-acceptance of both heritages."
+        },
+        {
+          "point": "Looking for Alibrandi - Key Subplot",
+          "info": "John Barton's suicide explores the hidden cost of academic/family pressure and perfectionism among high-achieving teens."
+        },
+        {
+          "point": "Go Back to Where You Came From - Purpose",
+          "info": "Reality/documentary series sending Australians with opposing views on asylum seekers through a reversed refugee-style journey to build empathy and challenge preconceptions."
+        },
+        {
+          "point": "Go Back to Where You Came From - Techniques",
+          "info": "Confessional direct-to-camera interviews, juxtaposition of comfortable Australian lives against refugee conditions, on-screen facts countering media myths, and deliberately opposing participant viewpoints to dramatise attitude change."
+        }
+      ]
+    }
   ]
 };

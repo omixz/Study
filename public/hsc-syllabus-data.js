@@ -28,11 +28,10 @@
  * for every other option - reasonably confident but not directly sourced.
  *
  * English Studies: a real non-ATAR NESA Content Endorsed Course. "Texts and
- * Human Experiences" is the mandatory HSC module; schools then choose 2-4
- * elective modules from a longer list (We Are Australians, Playing the Game,
- * Tell Us About It, On the Road, Discovery and Investigation, etc.) - the 3
- * electives below are common choices but may not match your school's actual
- * selection, in which case tell me which ones you study.
+ * Human Experiences" is the mandatory HSC module; this student's confirmed
+ * electives are "We Are Australians" and "Playing the Game" (studied via
+ * the prescribed/related texts "Looking for Alibrandi" and "Go Back to
+ * Where You Came From" for We Are Australians).
  *
  * Business Studies: HSC-examinable modules are Operations, Marketing, Finance
  * and Human Resources. (External Environment and Management are Preliminary/
@@ -181,19 +180,15 @@ const HSC_SYLLABUS = {
         'Analyse how texts represent aspects of Australian identity and belonging',
         'Examine how texts explore multiculturalism and diverse cultural perspectives in Australia',
         'Evaluate how Australian texts represent the experiences of Aboriginal and/or Torres Strait Islander peoples',
-        'Assess how language choices shape representations of citizenship and community in Australian texts'
+        'Assess how language choices shape representations of citizenship and community in Australian texts',
+        'Analyse how "Looking for Alibrandi" represents migrant identity, social class and belonging in Australia',
+        'Analyse how "Go Back to Where You Came From" uses documentary techniques to represent Australian attitudes toward asylum seekers'
       ],
       'Playing the Game': [
         'Analyse how texts represent the role of sport in individual and community life',
         'Examine how language and structural features are used in different forms of sports writing and commentary',
         'Evaluate how texts represent values such as teamwork, fairness and achievement through sport',
         'Assess how sporting texts are shaped for different audiences and purposes'
-      ],
-      'Tell Us About It': [
-        'Analyse how media texts are structured to inform, persuade or entertain an audience',
-        'Examine how language and visual features are used to construct meaning in news and current affairs texts',
-        'Evaluate the reliability and bias of different media sources reporting on the same event',
-        'Assess how digital and social media have changed the way news and information are produced and consumed'
       ]
     }
   }
