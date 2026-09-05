@@ -269,6 +269,31 @@ SUBJECTS.english = {
       "topic": "We Are Australians",
       "q": "How might \"Looking for Alibrandi\" and \"Go Back to Where You Came From\" be compared in a \"We Are Australians\" essay?",
       "a": "Both explore who gets to belong in Australia and on what terms - Alibrandi through one individual's generational migrant experience and internal identity struggle, and Go Back to Where You Came From through a confronting, external, documentary examination of asylum seekers and Australian attitudes toward them."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "What is catharsis and how might it relate to representing human experience?",
+      "a": "The release of strong or repressed emotion, often through engaging with a text - texts representing intense experiences (grief, trauma) can offer readers/viewers a cathartic emotional release."
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "q": "How does juxtaposition help represent contrasting human experiences?",
+      "a": "Placing two contrasting ideas, images or characters side by side highlights their differences, often used to show contrasting responses to the same experience (e.g. hope vs despair)."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "What is terra nullius and why is it significant to discussions of Australian identity?",
+      "a": "A Latin term meaning \"land belonging to no one\", used to legally justify British colonisation of Australia until overturned by the Mabo decision in 1992 - central to debates about the legitimacy of settlement and Indigenous rights."
+    },
+    {
+      "topic": "We Are Australians",
+      "q": "How might a text critique the concept of the \"Australian dream\"?",
+      "a": "By showing characters excluded from typical markers of the \"dream\" (home ownership, opportunity, equality) due to race, class or migrant status, revealing gaps between national mythology and lived reality."
+    },
+    {
+      "topic": "Playing the Game",
+      "q": "How might sport be used to explore themes of identity and belonging?",
+      "a": "Being part of a sporting team or community can provide a strong sense of belonging and shared identity, while exclusion from sport (due to gender, race, disability) can highlight social barriers to belonging."
     }
   ],
   "practice": [
@@ -334,6 +359,34 @@ SUBJECTS.english = {
       "marks": 4,
       "q": "Explain how ONE technique used in \"Go Back to Where You Came From\" is designed to build audience empathy for asylum seekers.",
       "criteria": "4 marks: Clear explanation with a specific technique and its effect\n3 marks: Good explanation with a technique identified\n2 marks: Adequate explanation\n1 mark: Limited understanding"
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "type": "Short answer",
+      "marks": 4,
+      "q": "Explain how ONE technique used in a text you have studied evokes catharsis or a strong emotional response in the responder.",
+      "criteria": "4 marks: Clear explanation with a specific technique and effect\n3 marks: Good explanation\n2 marks: Adequate explanation\n1 mark: Limited understanding"
+    },
+    {
+      "topic": "We Are Australians",
+      "type": "Extended response",
+      "marks": 8,
+      "q": "Analyse how the concept of terra nullius and its legacy is represented or referenced in a text you have studied.",
+      "criteria": "7-8 marks: Sophisticated analysis with strong textual evidence\n5-6 marks: Good analysis with relevant evidence\n3-4 marks: Adequate analysis\n1-2 marks: Limited response"
+    },
+    {
+      "topic": "Playing the Game",
+      "type": "Short answer",
+      "marks": 4,
+      "q": "Explain how sport can be represented as a source of both belonging and exclusion.",
+      "criteria": "4 marks: Clear explanation covering both belonging and exclusion\n3 marks: Good explanation of one aspect in depth\n2 marks: Adequate explanation\n1 mark: Limited understanding"
+    },
+    {
+      "topic": "Texts and Human Experiences",
+      "type": "Extended response",
+      "marks": 6,
+      "q": "Evaluate how juxtaposition is used in a text you have studied to represent contrasting human experiences.",
+      "criteria": "6 marks: Well-developed evaluation with strong evidence\n4-5 marks: Good evaluation with relevant evidence\n2-3 marks: Basic evaluation\n1 mark: Superficial response"
     }
   ],
   "essay": [
@@ -350,6 +403,13 @@ SUBJECTS.english = {
       "marks": 4,
       "q": "Write a body paragraph examining how competition in games serves as a metaphor for broader social competition and the reinforcement of hierarchies.",
       "criteria": "4 marks: Well-developed paragraph with strong analysis\n3 marks: Good paragraph with adequate analysis\n2 marks: Basic paragraph\n1 mark: Limited response"
+    },
+    {
+      "topic": "We Are Australians",
+      "part": "Introduction",
+      "marks": 3,
+      "q": "Write an introduction to an essay responding to: \"Belonging to a nation means more than legal citizenship.\" Discuss with reference to a text you have studied.",
+      "criteria": "3 marks: Clear thesis and outline of argument\n2 marks: Adequate thesis\n1 mark: Vague or unclear introduction\nNote: only the introduction should be marked."
     }
   ],
   "mcq": [
