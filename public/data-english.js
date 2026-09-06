@@ -294,6 +294,121 @@ SUBJECTS.english = {
       "topic": "Playing the Game",
       "q": "How might sport be used to explore themes of identity and belonging?",
       "a": "Being part of a sporting team or community can provide a strong sense of belonging and shared identity, while exclusion from sport (due to gender, race, disability) can highlight social barriers to belonging."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does 'identify' mean as an exam command word?",
+      "a": "Recognise and name something clearly - one of the simplest, lowest-mark command words."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does 'describe' mean as an exam command word?",
+      "a": "State the features or characteristics of something, without needing to explain why."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does 'outline' mean as an exam command word?",
+      "a": "Give a brief summary of the main points, without going into full detail."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does 'explain' mean as an exam command word?",
+      "a": "Show cause and effect - make clear why or how something happens, not just what it is."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does 'analyse' mean as an exam command word?",
+      "a": "Break something into its parts, identify how those parts relate to each other, and draw out what this means."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does 'discuss' mean as an exam command word?",
+      "a": "Explore an issue by presenting points for and/or against it."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does 'assess' mean as an exam command word?",
+      "a": "Make a judgement about the value, quality, outcome or importance of something."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does 'evaluate' mean as an exam command word?",
+      "a": "Make a judgement based on specific criteria, weighing evidence to determine the value or effectiveness of something."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does 'justify' mean as an exam command word?",
+      "a": "Support an argument or conclusion with reasons and evidence."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does 'compare' mean as an exam command word?",
+      "a": "Show how two or more things are similar."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does 'contrast' mean as an exam command word?",
+      "a": "Show how two or more things are different."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does 'distinguish' mean as an exam command word?",
+      "a": "Identify and explain the differences between two things that might otherwise seem similar."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does 'examine' mean as an exam command word?",
+      "a": "Inquire into something closely and in detail to understand it fully."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does 'define' mean as an exam command word?",
+      "a": "State the precise meaning of a term and identify its essential features."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does 'interpret' mean as an exam command word?",
+      "a": "Draw meaning from information, data or a source rather than just describing it."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does 'account for' mean as an exam command word?",
+      "a": "State reasons for something, or report on why or how it happened."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does 'apply' mean as an exam command word?",
+      "a": "Use knowledge, a formula or a method in a specific situation or scenario."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does 'investigate' mean as an exam command word?",
+      "a": "Plan, inquire into and draw conclusions about a topic."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does 'propose' mean as an exam command word?",
+      "a": "Put forward an idea, argument or suggestion for consideration."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does 'predict' mean as an exam command word?",
+      "a": "Suggest a likely outcome based on the information available."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What does adding 'critically' before 'analyse' or 'evaluate' change?",
+      "a": "It asks for an extra degree of depth, rigour, questioning and reflection beyond a standard analyse/evaluate response."
+    },
+    {
+      "topic": "Command Words",
+      "q": "Why does it matter which command word an HSC question uses?",
+      "a": "Command words indicate exactly what kind of response is expected and roughly how many marks are available - lower-order words (identify, outline) are usually worth fewer marks than higher-order words (analyse, evaluate), so answering with the wrong depth costs marks even with correct content."
+    },
+    {
+      "topic": "Command Words",
+      "q": "What is the general hierarchy of command words from lowest to highest order?",
+      "a": "Roughly: identify/outline -> describe -> explain -> analyse/discuss -> assess/evaluate -> critically analyse/evaluate, with depth and mark value increasing up the hierarchy."
     }
   ],
   "practice": [
