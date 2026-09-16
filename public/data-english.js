@@ -410,6 +410,62 @@ SUBJECTS.english = {
       "q": "What is the general hierarchy of command words from lowest to highest order?",
       "a": "Roughly: identify/outline -> describe -> explain -> analyse/discuss -> assess/evaluate -> critically analyse/evaluate, with depth and mark value increasing up the hierarchy."
     }
+  ,
+{
+    "topic": "Playing the Game",
+    "q": "What is the difference between 'fair play' and a 'win at all costs' mentality in texts about sport?",
+    "a": "Fair play values honesty, respect for rules and opponents even in defeat; a 'win at all costs' mentality prioritises victory above ethics, often explored in texts through cheating, doping or unsporting conduct."
+},
+{
+    "topic": "Playing the Game",
+    "q": "How might a text explore the commercialisation of sport?",
+    "a": "Showing tension between sport's traditional values (skill, teamwork, community) and its transformation into a profit-driven industry - sponsorship, media rights, athlete branding - often critiquing what's lost in the process."
+},
+{
+    "topic": "Playing the Game",
+    "q": "How can nostalgia be used in texts representing sport?",
+    "a": "Composers often idealise a 'golden age' of sport (simpler, purer, more community-focused) to critique its modern commercialised or corrupted state, or to explore personal memory and identity."
+},
+{
+    "topic": "Playing the Game",
+    "q": "How might a text use sport to explore race and integration?",
+    "a": "Sport is often depicted as an arena where racial barriers are challenged (e.g. a person of colour succeeding despite discrimination), symbolising broader social progress - though texts may also expose ongoing racism within sporting institutions."
+},
+{
+    "topic": "Playing the Game",
+    "q": "How might disability and sport (e.g. the Paralympics) be represented in texts?",
+    "a": "Often used to challenge assumptions about ability and human limitation, reframing narratives of adversity as ones of determination and skill rather than pity - though texts may also critique unequal media coverage or funding."
+},
+{
+    "topic": "Playing the Game",
+    "q": "What techniques might a composer use in sports commentary or writing to build tension?",
+    "a": "Short, urgent sentences; present tense for immediacy; rhetorical questions; repetition; and escalating word choice ('surges', 'explodes') to mimic the pace and drama of live action."
+},
+{
+    "topic": "Playing the Game",
+    "q": "How can the rules of a game act as a metaphor for social rules or norms?",
+    "a": "A game's structure (rules, boundaries, roles) can mirror how society constrains behaviour - breaking the game's rules can symbolise challenging social conventions or authority more broadly."
+},
+{
+    "topic": "Texts and Human Experiences",
+    "q": "What is a 'motif', and how does it relate to human experience in a text?",
+    "a": "A recurring image, symbol or idea throughout a text that reinforces a central theme - repetition of a motif can emphasise how a particular experience or emotion persists or develops across the narrative."
+},
+{
+    "topic": "Texts and Human Experiences",
+    "q": "What does 'responder positioning' mean?",
+    "a": "How a composer's choices (perspective, structure, language) guide the audience to feel a certain way about a character or event - e.g. first-person narration often positions responders to sympathise with that character."
+},
+{
+    "topic": "Texts and Human Experiences",
+    "q": "Why is Texts and Human Experiences described as exploring both the 'individual' and the 'collective'?",
+    "a": "It examines both a single person's unique, personal experience and the shared experiences that connect people across cultures and time - texts often move between the two to show how personal stories reflect universal human concerns."
+},
+{
+    "topic": "Texts and Human Experiences",
+    "q": "How might irony be used to represent a human experience?",
+    "a": "Irony highlights a gap between expectation and reality (or what's said and what's meant), often used to critique a character's self-deception, society's flaws, or the unpredictability of human life."
+}
   ],
   "practice": [
     {
